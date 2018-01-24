@@ -1,0 +1,557 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DD200A992018CE7B0051CD39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200A982018CE7B0051CD39 /* AppDelegate.m */; };
+		DD200A9C2018CE7C0051CD39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200A9B2018CE7C0051CD39 /* ViewController.m */; };
+		DD200A9F2018CE7C0051CD39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD200A9D2018CE7C0051CD39 /* Main.storyboard */; };
+		DD200AA12018CE7C0051CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD200AA02018CE7C0051CD39 /* Assets.xcassets */; };
+		DD200AA42018CE7C0051CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD200AA22018CE7C0051CD39 /* LaunchScreen.storyboard */; };
+		DD200AA72018CE7C0051CD39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AA62018CE7C0051CD39 /* main.m */; };
+		DD200AB12018CE7C0051CD39 /* mayi_shop_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AB02018CE7C0051CD39 /* mayi_shop_appTests.m */; };
+		DD200ABC2018CE7D0051CD39 /* mayi_shop_appUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200ABB2018CE7D0051CD39 /* mayi_shop_appUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DD200AAD2018CE7C0051CD39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD200A8C2018CE7B0051CD39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD200A932018CE7B0051CD39;
+			remoteInfo = mayi_shop_app;
+		};
+		DD200AB82018CE7D0051CD39 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD200A8C2018CE7B0051CD39 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DD200A932018CE7B0051CD39;
+			remoteInfo = mayi_shop_app;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DD200A942018CE7B0051CD39 /* mayi_shop_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mayi_shop_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD200A972018CE7B0051CD39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		DD200A982018CE7B0051CD39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		DD200A9A2018CE7C0051CD39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		DD200A9B2018CE7C0051CD39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		DD200A9E2018CE7C0051CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DD200AA02018CE7C0051CD39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DD200AA32018CE7C0051CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DD200AA52018CE7C0051CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD200AA62018CE7C0051CD39 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		DD200AAC2018CE7C0051CD39 /* mayi_shop_appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mayi_shop_appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD200AB02018CE7C0051CD39 /* mayi_shop_appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mayi_shop_appTests.m; sourceTree = "<group>"; };
+		DD200AB22018CE7D0051CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD200AB72018CE7D0051CD39 /* mayi_shop_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mayi_shop_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD200ABB2018CE7D0051CD39 /* mayi_shop_appUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mayi_shop_appUITests.m; sourceTree = "<group>"; };
+		DD200ABD2018CE7D0051CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD200A912018CE7B0051CD39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD200AA92018CE7C0051CD39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD200AB42018CE7D0051CD39 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DD200A8B2018CE7B0051CD39 = {
+			isa = PBXGroup;
+			children = (
+				DD200A962018CE7B0051CD39 /* mayi_shop_app */,
+				DD200AAF2018CE7C0051CD39 /* mayi_shop_appTests */,
+				DD200ABA2018CE7D0051CD39 /* mayi_shop_appUITests */,
+				DD200A952018CE7B0051CD39 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DD200A952018CE7B0051CD39 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD200A942018CE7B0051CD39 /* mayi_shop_app.app */,
+				DD200AAC2018CE7C0051CD39 /* mayi_shop_appTests.xctest */,
+				DD200AB72018CE7D0051CD39 /* mayi_shop_appUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD200A962018CE7B0051CD39 /* mayi_shop_app */ = {
+			isa = PBXGroup;
+			children = (
+				DD200A972018CE7B0051CD39 /* AppDelegate.h */,
+				DD200A982018CE7B0051CD39 /* AppDelegate.m */,
+				DD200A9A2018CE7C0051CD39 /* ViewController.h */,
+				DD200A9B2018CE7C0051CD39 /* ViewController.m */,
+				DD200A9D2018CE7C0051CD39 /* Main.storyboard */,
+				DD200AA02018CE7C0051CD39 /* Assets.xcassets */,
+				DD200AA22018CE7C0051CD39 /* LaunchScreen.storyboard */,
+				DD200AA52018CE7C0051CD39 /* Info.plist */,
+				DD200AA62018CE7C0051CD39 /* main.m */,
+			);
+			path = mayi_shop_app;
+			sourceTree = "<group>";
+		};
+		DD200AAF2018CE7C0051CD39 /* mayi_shop_appTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AB02018CE7C0051CD39 /* mayi_shop_appTests.m */,
+				DD200AB22018CE7D0051CD39 /* Info.plist */,
+			);
+			path = mayi_shop_appTests;
+			sourceTree = "<group>";
+		};
+		DD200ABA2018CE7D0051CD39 /* mayi_shop_appUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DD200ABB2018CE7D0051CD39 /* mayi_shop_appUITests.m */,
+				DD200ABD2018CE7D0051CD39 /* Info.plist */,
+			);
+			path = mayi_shop_appUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DD200A932018CE7B0051CD39 /* mayi_shop_app */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD200AC02018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_app" */;
+			buildPhases = (
+				DD200A902018CE7B0051CD39 /* Sources */,
+				DD200A912018CE7B0051CD39 /* Frameworks */,
+				DD200A922018CE7B0051CD39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = mayi_shop_app;
+			productName = mayi_shop_app;
+			productReference = DD200A942018CE7B0051CD39 /* mayi_shop_app.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DD200AAB2018CE7C0051CD39 /* mayi_shop_appTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD200AC32018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_appTests" */;
+			buildPhases = (
+				DD200AA82018CE7C0051CD39 /* Sources */,
+				DD200AA92018CE7C0051CD39 /* Frameworks */,
+				DD200AAA2018CE7C0051CD39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD200AAE2018CE7C0051CD39 /* PBXTargetDependency */,
+			);
+			name = mayi_shop_appTests;
+			productName = mayi_shop_appTests;
+			productReference = DD200AAC2018CE7C0051CD39 /* mayi_shop_appTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DD200AB62018CE7D0051CD39 /* mayi_shop_appUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD200AC62018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_appUITests" */;
+			buildPhases = (
+				DD200AB32018CE7D0051CD39 /* Sources */,
+				DD200AB42018CE7D0051CD39 /* Frameworks */,
+				DD200AB52018CE7D0051CD39 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD200AB92018CE7D0051CD39 /* PBXTargetDependency */,
+			);
+			name = mayi_shop_appUITests;
+			productName = mayi_shop_appUITests;
+			productReference = DD200AB72018CE7D0051CD39 /* mayi_shop_appUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DD200A8C2018CE7B0051CD39 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = JayJay;
+				TargetAttributes = {
+					DD200A932018CE7B0051CD39 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+					DD200AAB2018CE7C0051CD39 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DD200A932018CE7B0051CD39;
+					};
+					DD200AB62018CE7D0051CD39 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+						TestTargetID = DD200A932018CE7B0051CD39;
+					};
+				};
+			};
+			buildConfigurationList = DD200A8F2018CE7B0051CD39 /* Build configuration list for PBXProject "mayi_shop_app" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DD200A8B2018CE7B0051CD39;
+			productRefGroup = DD200A952018CE7B0051CD39 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DD200A932018CE7B0051CD39 /* mayi_shop_app */,
+				DD200AAB2018CE7C0051CD39 /* mayi_shop_appTests */,
+				DD200AB62018CE7D0051CD39 /* mayi_shop_appUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD200A922018CE7B0051CD39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD200AA42018CE7C0051CD39 /* LaunchScreen.storyboard in Resources */,
+				DD200AA12018CE7C0051CD39 /* Assets.xcassets in Resources */,
+				DD200A9F2018CE7C0051CD39 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD200AAA2018CE7C0051CD39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD200AB52018CE7D0051CD39 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD200A902018CE7B0051CD39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD200A9C2018CE7C0051CD39 /* ViewController.m in Sources */,
+				DD200AA72018CE7C0051CD39 /* main.m in Sources */,
+				DD200A992018CE7B0051CD39 /* AppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD200AA82018CE7C0051CD39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD200AB12018CE7C0051CD39 /* mayi_shop_appTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DD200AB32018CE7D0051CD39 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD200ABC2018CE7D0051CD39 /* mayi_shop_appUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DD200AAE2018CE7C0051CD39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD200A932018CE7B0051CD39 /* mayi_shop_app */;
+			targetProxy = DD200AAD2018CE7C0051CD39 /* PBXContainerItemProxy */;
+		};
+		DD200AB92018CE7D0051CD39 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DD200A932018CE7B0051CD39 /* mayi_shop_app */;
+			targetProxy = DD200AB82018CE7D0051CD39 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD200A9D2018CE7C0051CD39 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD200A9E2018CE7C0051CD39 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DD200AA22018CE7C0051CD39 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD200AA32018CE7C0051CD39 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DD200ABE2018CE7D0051CD39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		DD200ABF2018CE7D0051CD39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DD200AC12018CE7D0051CD39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74897WDG2G;
+				INFOPLIST_FILE = mayi_shop_app/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DD200AC22018CE7D0051CD39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74897WDG2G;
+				INFOPLIST_FILE = mayi_shop_app/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-app";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		DD200AC42018CE7D0051CD39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74897WDG2G;
+				INFOPLIST_FILE = mayi_shop_appTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mayi_shop_app.app/mayi_shop_app";
+			};
+			name = Debug;
+		};
+		DD200AC52018CE7D0051CD39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74897WDG2G;
+				INFOPLIST_FILE = mayi_shop_appTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-appTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/mayi_shop_app.app/mayi_shop_app";
+			};
+			name = Release;
+		};
+		DD200AC72018CE7D0051CD39 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74897WDG2G;
+				INFOPLIST_FILE = mayi_shop_appUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = mayi_shop_app;
+			};
+			name = Debug;
+		};
+		DD200AC82018CE7D0051CD39 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 74897WDG2G;
+				INFOPLIST_FILE = mayi_shop_appUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-appUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = mayi_shop_app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DD200A8F2018CE7B0051CD39 /* Build configuration list for PBXProject "mayi_shop_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD200ABE2018CE7D0051CD39 /* Debug */,
+				DD200ABF2018CE7D0051CD39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD200AC02018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_app" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD200AC12018CE7D0051CD39 /* Debug */,
+				DD200AC22018CE7D0051CD39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD200AC32018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_appTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD200AC42018CE7D0051CD39 /* Debug */,
+				DD200AC52018CE7D0051CD39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DD200AC62018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_appUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD200AC72018CE7D0051CD39 /* Debug */,
+				DD200AC82018CE7D0051CD39 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DD200A8C2018CE7B0051CD39 /* Project object */;
+}
