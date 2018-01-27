@@ -7,8 +7,15 @@
 //
 
 #import "BaseViewController.h"
+#import "WYWebProgressLayer.h"
+#import "UIView+Frame.h"
+#import "WLWebProgressLayer.h"
 
 @interface BaseViewController ()<UIWebViewDelegate>
+
+{
+    WYWebProgressLayer *_progressLayer; ///< 网页加载进度条
+}
 
 @end
 
@@ -63,6 +70,11 @@
 {
     MyLog(@"开始加载");
     
+    _progressLayer = [WYWebProgressLayer layerWithFrame:CGRectMake(0, 0, ScreenWidth, 3)];
+    [self.view.layer addSublayer:_progressLayer];
+    [_progressLayer startLoad];
+    
+    
 }
 
 //加载完成
@@ -70,6 +82,7 @@
 {
     MyLog(@"加载完成");
     [Hud stop];
+    [_progressLayer finishedLoad];
     
 }
 
@@ -106,6 +119,7 @@
     
     MyLog(@"web加载出错：%@",[error localizedDescription]);
     [Hud stop];
+    [_progressLayer finishedLoad];
     [Hud showText:@"网络错误"];
 }
 

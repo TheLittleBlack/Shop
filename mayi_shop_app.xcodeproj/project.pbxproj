@@ -35,6 +35,11 @@
 		DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B182018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m */; };
 		DD200B252018E2B20051CD39 /* Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B1B2018E2B20051CD39 /* Hud.m */; };
 		DD200B292018F0350051CD39 /* MYManage.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B282018F0350051CD39 /* MYManage.m */; };
+		DDE5068A201C779500E60EE8 /* NSTimer+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50681201C779500E60EE8 /* NSTimer+addition.m */; };
+		DDE5068B201C779500E60EE8 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50683201C779500E60EE8 /* UIView+Frame.m */; };
+		DDE5068C201C779500E60EE8 /* WLWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50685201C779500E60EE8 /* WLWebProgressLayer.m */; };
+		DDE5068D201C779500E60EE8 /* WYWebController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50687201C779500E60EE8 /* WYWebController.m */; };
+		DDE5068E201C779500E60EE8 /* WYWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50689201C779500E60EE8 /* WYWebProgressLayer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -111,6 +116,16 @@
 		DD200B1B2018E2B20051CD39 /* Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hud.m; sourceTree = "<group>"; };
 		DD200B272018F0350051CD39 /* MYManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYManage.h; sourceTree = "<group>"; };
 		DD200B282018F0350051CD39 /* MYManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYManage.m; sourceTree = "<group>"; };
+		DDE50680201C779500E60EE8 /* NSTimer+addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+addition.h"; sourceTree = "<group>"; };
+		DDE50681201C779500E60EE8 /* NSTimer+addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+addition.m"; sourceTree = "<group>"; };
+		DDE50682201C779500E60EE8 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
+		DDE50683201C779500E60EE8 /* UIView+Frame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		DDE50684201C779500E60EE8 /* WLWebProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WLWebProgressLayer.h; sourceTree = "<group>"; };
+		DDE50685201C779500E60EE8 /* WLWebProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WLWebProgressLayer.m; sourceTree = "<group>"; };
+		DDE50686201C779500E60EE8 /* WYWebController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWebController.h; sourceTree = "<group>"; };
+		DDE50687201C779500E60EE8 /* WYWebController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWebController.m; sourceTree = "<group>"; };
+		DDE50688201C779500E60EE8 /* WYWebProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WYWebProgressLayer.h; sourceTree = "<group>"; };
+		DDE50689201C779500E60EE8 /* WYWebProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WYWebProgressLayer.m; sourceTree = "<group>"; };
 		F02051B5C1056D6DE21F43B8 /* libPods-mayi_shop_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mayi_shop_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -387,6 +402,7 @@
 		DD200AE02018D1AB0051CD39 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				DDE5067E201C779500E60EE8 /* package */,
 				DD200B262018F0350051CD39 /* Singleton */,
 				DD200B022018E2B20051CD39 /* Category */,
 				DD200B192018E2B20051CD39 /* Hud */,
@@ -505,6 +521,31 @@
 				DD200B282018F0350051CD39 /* MYManage.m */,
 			);
 			path = Singleton;
+			sourceTree = "<group>";
+		};
+		DDE5067E201C779500E60EE8 /* package */ = {
+			isa = PBXGroup;
+			children = (
+				DDE5067F201C779500E60EE8 /* WebviewProgress */,
+			);
+			path = package;
+			sourceTree = "<group>";
+		};
+		DDE5067F201C779500E60EE8 /* WebviewProgress */ = {
+			isa = PBXGroup;
+			children = (
+				DDE50680201C779500E60EE8 /* NSTimer+addition.h */,
+				DDE50681201C779500E60EE8 /* NSTimer+addition.m */,
+				DDE50682201C779500E60EE8 /* UIView+Frame.h */,
+				DDE50683201C779500E60EE8 /* UIView+Frame.m */,
+				DDE50684201C779500E60EE8 /* WLWebProgressLayer.h */,
+				DDE50685201C779500E60EE8 /* WLWebProgressLayer.m */,
+				DDE50686201C779500E60EE8 /* WYWebController.h */,
+				DDE50687201C779500E60EE8 /* WYWebController.m */,
+				DDE50688201C779500E60EE8 /* WYWebProgressLayer.h */,
+				DDE50689201C779500E60EE8 /* WYWebProgressLayer.m */,
+			);
+			path = WebviewProgress;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -698,6 +739,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDE5068B201C779500E60EE8 /* UIView+Frame.m in Sources */,
 				DD200B222018E2B20051CD39 /* NSString+URLEncoded.m in Sources */,
 				DD200AFE2018E2410051CD39 /* MyNetworkRequest.m in Sources */,
 				DD200B292018F0350051CD39 /* MYManage.m in Sources */,
@@ -707,10 +749,14 @@
 				DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */,
 				DD200AA72018CE7C0051CD39 /* main.m in Sources */,
 				DD200B212018E2B20051CD39 /* NSString+MD5.m in Sources */,
+				DDE5068C201C779500E60EE8 /* WLWebProgressLayer.m in Sources */,
 				DD200B1D2018E2B20051CD39 /* NSDictionary+GetSign.m in Sources */,
+				DDE5068D201C779500E60EE8 /* WYWebController.m in Sources */,
+				DDE5068E201C779500E60EE8 /* WYWebProgressLayer.m in Sources */,
 				DD200B1C2018E2B20051CD39 /* NSDictionary+GetPropertyList.m in Sources */,
 				DD200AEB2018D3910051CD39 /* HomeViewController.m in Sources */,
 				DD200B012018E2710051CD39 /* Foundation+Log.m in Sources */,
+				DDE5068A201C779500E60EE8 /* NSTimer+addition.m in Sources */,
 				DD200B1E2018E2B20051CD39 /* NSString+DealTimestamp.m in Sources */,
 				DD200B1F2018E2B20051CD39 /* NSString+GetWidth.m in Sources */,
 				DD200B232018E2B20051CD39 /* UITabBar+ShowTip.m in Sources */,
