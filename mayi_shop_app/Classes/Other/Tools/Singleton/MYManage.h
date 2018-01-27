@@ -29,12 +29,7 @@
 // userInfo
 @property(nonatomic,strong)NSString *address;
 
-// other （未读消息数）
-@property(nonatomic,assign)NSInteger NOTICE;
-@property(nonatomic,assign)NSInteger SHARE;  
-@property(nonatomic,assign)NSInteger DAIBAN; // 未知用途
-@property(nonatomic,assign)NSInteger EXAMINE;  // 审批事务
-@property(nonatomic,assign)NSInteger WORK;
+
 
 +(instancetype)defaultManager;
 

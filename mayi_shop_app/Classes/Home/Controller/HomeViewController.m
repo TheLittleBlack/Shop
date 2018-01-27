@@ -16,22 +16,27 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    
+    
+    
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+// 设置cookie
+//- (void)setCookie:(NSString *)token{
+//
+//    NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
+//    [cookieProperties setObject:@"ASESSIONID" forKey:NSHTTPCookieName];
+//    [cookieProperties setObject:token forKey:NSHTTPCookieValue];
+//    [cookieProperties setObject:WebMainURL forKey:NSHTTPCookieDomain];
+//    [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
+//    [cookieProperties setObject:@"0" forKey:NSHTTPCookieVersion];
+//    [cookieProperties setObject:[[NSDate date] dateByAddingTimeInterval:60*60*24] forKey:NSHTTPCookieExpires];
+//
+//    NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
+//    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
+//}
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

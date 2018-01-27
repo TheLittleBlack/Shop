@@ -9,6 +9,22 @@
 
 
 
+// 配置环境    0 使用测试服务器     1 使用正式服务器
+
+#define ConfigureServer 0
+
+
+
+
+#if ConfigureServer == 0
+#define MainURL @"http://test.m.mayi118.com"
+#else
+#define MainURL @"http://m.hlwjd.cn"
+#endif
+
+#define SMID @"home_c6phlcqioh9p"   // 店铺id
+
+
 
 //-----------------------------------------------------------------------
 
@@ -17,6 +33,11 @@
 
 #import <UIKit/UIKit.h>
 #import "UIView+MyFrame.h"
+#import "Hud.h"
+#import <Masonry.h>
+#import "MyNetworkRequest.h"
+#import "MayiURLManage.h"
+#import <MBProgressHUD.h>
 //#import "MyAFNetWorking.h"
 
 //屏幕宽高缩放比
@@ -27,8 +48,6 @@
 //快速设置颜色
 #define MyColor(r,g,b,a) [UIColor colorWithRed:(r/255.0) green:(g)/255.0 blue:(b)/255.0 alpha:(a)/255.0]
 
-//主题颜色
-#define MainColor [UIColor colorWithRed:255/255.0 green:135/255.0 blue:53/255.0 alpha:1]
 
 //随机色
 #define RandomColor [UIColor colorWithRed:arc4random_uniform(255)/255.0 green:arc4random_uniform(255)/255.0 blue:arc4random_uniform(255)/255.0 alpha:1]
@@ -38,6 +57,12 @@
 colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 \
 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 \
 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
+
+//主题颜色
+#define MainColor MyColorHex(0xe04749)
+
+
+
 
 //获取系统版本
 #define SystemVersion [[[UIDevice currentDevice] systemVersion] floatValue]

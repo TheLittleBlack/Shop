@@ -10,4 +10,7 @@
 
 @interface BaseViewController : UIViewController
 
+@property(nonatomic,strong)UIWebView *webView;
+@property(nonatomic,copy)NSString *urlString;
+
 @end

@@ -7,14 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		68A1A2E1F2C3573E28A477F8 /* libPods-mayi_shop_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F02051B5C1056D6DE21F43B8 /* libPods-mayi_shop_app.a */; };
 		DD200A992018CE7B0051CD39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200A982018CE7B0051CD39 /* AppDelegate.m */; };
-		DD200A9C2018CE7C0051CD39 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200A9B2018CE7C0051CD39 /* ViewController.m */; };
 		DD200A9F2018CE7C0051CD39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD200A9D2018CE7C0051CD39 /* Main.storyboard */; };
 		DD200AA12018CE7C0051CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD200AA02018CE7C0051CD39 /* Assets.xcassets */; };
 		DD200AA42018CE7C0051CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD200AA22018CE7C0051CD39 /* LaunchScreen.storyboard */; };
 		DD200AA72018CE7C0051CD39 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AA62018CE7C0051CD39 /* main.m */; };
 		DD200AB12018CE7C0051CD39 /* mayi_shop_appTests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AB02018CE7C0051CD39 /* mayi_shop_appTests.m */; };
 		DD200ABC2018CE7D0051CD39 /* mayi_shop_appUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200ABB2018CE7D0051CD39 /* mayi_shop_appUITests.m */; };
+		DD200AE52018D1AB0051CD39 /* UIView+MyFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AE32018D1AB0051CD39 /* UIView+MyFrame.m */; };
+		DD200AE82018D3170051CD39 /* BaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AE72018D3170051CD39 /* BaseViewController.m */; };
+		DD200AEB2018D3910051CD39 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AEA2018D3910051CD39 /* HomeViewController.m */; };
+		DD200AF12018D6100051CD39 /* CartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AF02018D6100051CD39 /* CartViewController.m */; };
+		DD200AF42018D61F0051CD39 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AF32018D61F0051CD39 /* CategoryViewController.m */; };
+		DD200AF72018D6280051CD39 /* MineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AF62018D6280051CD39 /* MineViewController.m */; };
+		DD200AFD2018E2410051CD39 /* MayiURLManage.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AFA2018E2410051CD39 /* MayiURLManage.m */; };
+		DD200AFE2018E2410051CD39 /* MyNetworkRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200AFC2018E2410051CD39 /* MyNetworkRequest.m */; };
+		DD200B012018E2710051CD39 /* Foundation+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B002018E2710051CD39 /* Foundation+Log.m */; };
+		DD200B1C2018E2B20051CD39 /* NSDictionary+GetPropertyList.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B052018E2B20051CD39 /* NSDictionary+GetPropertyList.m */; };
+		DD200B1D2018E2B20051CD39 /* NSDictionary+GetSign.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B072018E2B20051CD39 /* NSDictionary+GetSign.m */; };
+		DD200B1E2018E2B20051CD39 /* NSString+DealTimestamp.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B0A2018E2B20051CD39 /* NSString+DealTimestamp.m */; };
+		DD200B1F2018E2B20051CD39 /* NSString+GetWidth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B0C2018E2B20051CD39 /* NSString+GetWidth.m */; };
+		DD200B202018E2B20051CD39 /* NSString+JKNormalRegex.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B0E2018E2B20051CD39 /* NSString+JKNormalRegex.m */; };
+		DD200B212018E2B20051CD39 /* NSString+MD5.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B102018E2B20051CD39 /* NSString+MD5.m */; };
+		DD200B222018E2B20051CD39 /* NSString+URLEncoded.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B122018E2B20051CD39 /* NSString+URLEncoded.m */; };
+		DD200B232018E2B20051CD39 /* UITabBar+ShowTip.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B152018E2B20051CD39 /* UITabBar+ShowTip.m */; };
+		DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B182018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m */; };
+		DD200B252018E2B20051CD39 /* Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B1B2018E2B20051CD39 /* Hud.m */; };
+		DD200B292018F0350051CD39 /* MYManage.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B282018F0350051CD39 /* MYManage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,11 +55,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		109596666D111078274A2428 /* Pods-mayi_shop_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mayi_shop_app.release.xcconfig"; path = "Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app.release.xcconfig"; sourceTree = "<group>"; };
+		B9E8D44A56943BC9B19498B0 /* Pods-mayi_shop_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mayi_shop_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app.debug.xcconfig"; sourceTree = "<group>"; };
 		DD200A942018CE7B0051CD39 /* mayi_shop_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mayi_shop_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD200A972018CE7B0051CD39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD200A982018CE7B0051CD39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		DD200A9A2018CE7C0051CD39 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		DD200A9B2018CE7C0051CD39 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		DD200A9E2018CE7C0051CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DD200AA02018CE7C0051CD39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DD200AA32018CE7C0051CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +71,47 @@
 		DD200AB72018CE7D0051CD39 /* mayi_shop_appUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mayi_shop_appUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD200ABB2018CE7D0051CD39 /* mayi_shop_appUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = mayi_shop_appUITests.m; sourceTree = "<group>"; };
 		DD200ABD2018CE7D0051CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD200AE22018D1AB0051CD39 /* UIView+MyFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MyFrame.h"; sourceTree = "<group>"; };
+		DD200AE32018D1AB0051CD39 /* UIView+MyFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MyFrame.m"; sourceTree = "<group>"; };
+		DD200AE62018D3170051CD39 /* BaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseViewController.h; sourceTree = "<group>"; };
+		DD200AE72018D3170051CD39 /* BaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BaseViewController.m; sourceTree = "<group>"; };
+		DD200AE92018D3910051CD39 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		DD200AEA2018D3910051CD39 /* HomeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		DD200AEE2018D3D70051CD39 /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		DD200AEF2018D6100051CD39 /* CartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CartViewController.h; sourceTree = "<group>"; };
+		DD200AF02018D6100051CD39 /* CartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CartViewController.m; sourceTree = "<group>"; };
+		DD200AF22018D61F0051CD39 /* CategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
+		DD200AF32018D61F0051CD39 /* CategoryViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
+		DD200AF52018D6280051CD39 /* MineViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MineViewController.h; sourceTree = "<group>"; };
+		DD200AF62018D6280051CD39 /* MineViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MineViewController.m; sourceTree = "<group>"; };
+		DD200AF92018E2410051CD39 /* MayiURLManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MayiURLManage.h; sourceTree = "<group>"; };
+		DD200AFA2018E2410051CD39 /* MayiURLManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MayiURLManage.m; sourceTree = "<group>"; };
+		DD200AFB2018E2410051CD39 /* MyNetworkRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNetworkRequest.h; sourceTree = "<group>"; };
+		DD200AFC2018E2410051CD39 /* MyNetworkRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNetworkRequest.m; sourceTree = "<group>"; };
+		DD200B002018E2710051CD39 /* Foundation+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Foundation+Log.m"; sourceTree = "<group>"; };
+		DD200B042018E2B20051CD39 /* NSDictionary+GetPropertyList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GetPropertyList.h"; sourceTree = "<group>"; };
+		DD200B052018E2B20051CD39 /* NSDictionary+GetPropertyList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GetPropertyList.m"; sourceTree = "<group>"; };
+		DD200B062018E2B20051CD39 /* NSDictionary+GetSign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+GetSign.h"; sourceTree = "<group>"; };
+		DD200B072018E2B20051CD39 /* NSDictionary+GetSign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+GetSign.m"; sourceTree = "<group>"; };
+		DD200B092018E2B20051CD39 /* NSString+DealTimestamp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DealTimestamp.h"; sourceTree = "<group>"; };
+		DD200B0A2018E2B20051CD39 /* NSString+DealTimestamp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DealTimestamp.m"; sourceTree = "<group>"; };
+		DD200B0B2018E2B20051CD39 /* NSString+GetWidth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+GetWidth.h"; sourceTree = "<group>"; };
+		DD200B0C2018E2B20051CD39 /* NSString+GetWidth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+GetWidth.m"; sourceTree = "<group>"; };
+		DD200B0D2018E2B20051CD39 /* NSString+JKNormalRegex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+JKNormalRegex.h"; sourceTree = "<group>"; };
+		DD200B0E2018E2B20051CD39 /* NSString+JKNormalRegex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+JKNormalRegex.m"; sourceTree = "<group>"; };
+		DD200B0F2018E2B20051CD39 /* NSString+MD5.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5.h"; sourceTree = "<group>"; };
+		DD200B102018E2B20051CD39 /* NSString+MD5.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5.m"; sourceTree = "<group>"; };
+		DD200B112018E2B20051CD39 /* NSString+URLEncoded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLEncoded.h"; sourceTree = "<group>"; };
+		DD200B122018E2B20051CD39 /* NSString+URLEncoded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLEncoded.m"; sourceTree = "<group>"; };
+		DD200B142018E2B20051CD39 /* UITabBar+ShowTip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBar+ShowTip.h"; sourceTree = "<group>"; };
+		DD200B152018E2B20051CD39 /* UITabBar+ShowTip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBar+ShowTip.m"; sourceTree = "<group>"; };
+		DD200B172018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+WLEmptyPlaceHolder.h"; sourceTree = "<group>"; };
+		DD200B182018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+WLEmptyPlaceHolder.m"; sourceTree = "<group>"; };
+		DD200B1A2018E2B20051CD39 /* Hud.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Hud.h; sourceTree = "<group>"; };
+		DD200B1B2018E2B20051CD39 /* Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hud.m; sourceTree = "<group>"; };
+		DD200B272018F0350051CD39 /* MYManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYManage.h; sourceTree = "<group>"; };
+		DD200B282018F0350051CD39 /* MYManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYManage.m; sourceTree = "<group>"; };
+		F02051B5C1056D6DE21F43B8 /* libPods-mayi_shop_app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-mayi_shop_app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +119,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				68A1A2E1F2C3573E28A477F8 /* libPods-mayi_shop_app.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +140,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5E51A8689BC1698AAC21C8E7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F02051B5C1056D6DE21F43B8 /* libPods-mayi_shop_app.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B0EF72CCF2823DFB11C82F94 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B9E8D44A56943BC9B19498B0 /* Pods-mayi_shop_app.debug.xcconfig */,
+				109596666D111078274A2428 /* Pods-mayi_shop_app.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		DD200A8B2018CE7B0051CD39 = {
 			isa = PBXGroup;
 			children = (
@@ -85,6 +164,8 @@
 				DD200AAF2018CE7C0051CD39 /* mayi_shop_appTests */,
 				DD200ABA2018CE7D0051CD39 /* mayi_shop_appUITests */,
 				DD200A952018CE7B0051CD39 /* Products */,
+				B0EF72CCF2823DFB11C82F94 /* Pods */,
+				5E51A8689BC1698AAC21C8E7 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -101,10 +182,10 @@
 		DD200A962018CE7B0051CD39 /* mayi_shop_app */ = {
 			isa = PBXGroup;
 			children = (
+				DD200ACC2018D1AB0051CD39 /* Classes */,
 				DD200A972018CE7B0051CD39 /* AppDelegate.h */,
 				DD200A982018CE7B0051CD39 /* AppDelegate.m */,
-				DD200A9A2018CE7C0051CD39 /* ViewController.h */,
-				DD200A9B2018CE7C0051CD39 /* ViewController.m */,
+				DD200AEE2018D3D70051CD39 /* PrefixHeader.pch */,
 				DD200A9D2018CE7C0051CD39 /* Main.storyboard */,
 				DD200AA02018CE7C0051CD39 /* Assets.xcassets */,
 				DD200AA22018CE7C0051CD39 /* LaunchScreen.storyboard */,
@@ -132,6 +213,300 @@
 			path = mayi_shop_appUITests;
 			sourceTree = "<group>";
 		};
+		DD200ACC2018D1AB0051CD39 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				DD200ACD2018D1AB0051CD39 /* Cart */,
+				DD200AD12018D1AB0051CD39 /* Category */,
+				DD200AD52018D1AB0051CD39 /* Home */,
+				DD200AD92018D1AB0051CD39 /* Mine */,
+				DD200ADD2018D1AB0051CD39 /* Other */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		DD200ACD2018D1AB0051CD39 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+				DD200ACE2018D1AB0051CD39 /* Controller */,
+				DD200ACF2018D1AB0051CD39 /* Model */,
+				DD200AD02018D1AB0051CD39 /* View */,
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		DD200ACE2018D1AB0051CD39 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AEF2018D6100051CD39 /* CartViewController.h */,
+				DD200AF02018D6100051CD39 /* CartViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD200ACF2018D1AB0051CD39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD200AD02018D1AB0051CD39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD200AD12018D1AB0051CD39 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AD22018D1AB0051CD39 /* Controller */,
+				DD200AD32018D1AB0051CD39 /* Model */,
+				DD200AD42018D1AB0051CD39 /* View */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		DD200AD22018D1AB0051CD39 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AF22018D61F0051CD39 /* CategoryViewController.h */,
+				DD200AF32018D61F0051CD39 /* CategoryViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD200AD32018D1AB0051CD39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD200AD42018D1AB0051CD39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD200AD52018D1AB0051CD39 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AD62018D1AB0051CD39 /* Controller */,
+				DD200AD72018D1AB0051CD39 /* Model */,
+				DD200AD82018D1AB0051CD39 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		DD200AD62018D1AB0051CD39 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AE92018D3910051CD39 /* HomeViewController.h */,
+				DD200AEA2018D3910051CD39 /* HomeViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD200AD72018D1AB0051CD39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD200AD82018D1AB0051CD39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD200AD92018D1AB0051CD39 /* Mine */ = {
+			isa = PBXGroup;
+			children = (
+				DD200ADA2018D1AB0051CD39 /* Controller */,
+				DD200ADB2018D1AB0051CD39 /* Model */,
+				DD200ADC2018D1AB0051CD39 /* View */,
+			);
+			path = Mine;
+			sourceTree = "<group>";
+		};
+		DD200ADA2018D1AB0051CD39 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AF52018D6280051CD39 /* MineViewController.h */,
+				DD200AF62018D6280051CD39 /* MineViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD200ADB2018D1AB0051CD39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD200ADC2018D1AB0051CD39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD200ADD2018D1AB0051CD39 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				DD200ADE2018D1AB0051CD39 /* Controller */,
+				DD200ADF2018D1AB0051CD39 /* Model */,
+				DD200AE02018D1AB0051CD39 /* Tools */,
+				DD200AE42018D1AB0051CD39 /* View */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		DD200ADE2018D1AB0051CD39 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AE62018D3170051CD39 /* BaseViewController.h */,
+				DD200AE72018D3170051CD39 /* BaseViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		DD200ADF2018D1AB0051CD39 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD200AE02018D1AB0051CD39 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B262018F0350051CD39 /* Singleton */,
+				DD200B022018E2B20051CD39 /* Category */,
+				DD200B192018E2B20051CD39 /* Hud */,
+				DD200AFF2018E2710051CD39 /* Log */,
+				DD200AF82018E2410051CD39 /* Network */,
+				DD200AE12018D1AB0051CD39 /* UIView分类 */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		DD200AE12018D1AB0051CD39 /* UIView分类 */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AE22018D1AB0051CD39 /* UIView+MyFrame.h */,
+				DD200AE32018D1AB0051CD39 /* UIView+MyFrame.m */,
+			);
+			path = "UIView分类";
+			sourceTree = "<group>";
+		};
+		DD200AE42018D1AB0051CD39 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD200AF82018E2410051CD39 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DD200AF92018E2410051CD39 /* MayiURLManage.h */,
+				DD200AFA2018E2410051CD39 /* MayiURLManage.m */,
+				DD200AFB2018E2410051CD39 /* MyNetworkRequest.h */,
+				DD200AFC2018E2410051CD39 /* MyNetworkRequest.m */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DD200AFF2018E2710051CD39 /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B002018E2710051CD39 /* Foundation+Log.m */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		DD200B022018E2B20051CD39 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B032018E2B20051CD39 /* NSDictionaryCategory */,
+				DD200B082018E2B20051CD39 /* NSStringCategory */,
+				DD200B132018E2B20051CD39 /* Tabbar */,
+				DD200B162018E2B20051CD39 /* tableView */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		DD200B032018E2B20051CD39 /* NSDictionaryCategory */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B042018E2B20051CD39 /* NSDictionary+GetPropertyList.h */,
+				DD200B052018E2B20051CD39 /* NSDictionary+GetPropertyList.m */,
+				DD200B062018E2B20051CD39 /* NSDictionary+GetSign.h */,
+				DD200B072018E2B20051CD39 /* NSDictionary+GetSign.m */,
+			);
+			path = NSDictionaryCategory;
+			sourceTree = "<group>";
+		};
+		DD200B082018E2B20051CD39 /* NSStringCategory */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B092018E2B20051CD39 /* NSString+DealTimestamp.h */,
+				DD200B0A2018E2B20051CD39 /* NSString+DealTimestamp.m */,
+				DD200B0B2018E2B20051CD39 /* NSString+GetWidth.h */,
+				DD200B0C2018E2B20051CD39 /* NSString+GetWidth.m */,
+				DD200B0D2018E2B20051CD39 /* NSString+JKNormalRegex.h */,
+				DD200B0E2018E2B20051CD39 /* NSString+JKNormalRegex.m */,
+				DD200B0F2018E2B20051CD39 /* NSString+MD5.h */,
+				DD200B102018E2B20051CD39 /* NSString+MD5.m */,
+				DD200B112018E2B20051CD39 /* NSString+URLEncoded.h */,
+				DD200B122018E2B20051CD39 /* NSString+URLEncoded.m */,
+			);
+			path = NSStringCategory;
+			sourceTree = "<group>";
+		};
+		DD200B132018E2B20051CD39 /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B142018E2B20051CD39 /* UITabBar+ShowTip.h */,
+				DD200B152018E2B20051CD39 /* UITabBar+ShowTip.m */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		DD200B162018E2B20051CD39 /* tableView */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B172018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.h */,
+				DD200B182018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m */,
+			);
+			path = tableView;
+			sourceTree = "<group>";
+		};
+		DD200B192018E2B20051CD39 /* Hud */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B1A2018E2B20051CD39 /* Hud.h */,
+				DD200B1B2018E2B20051CD39 /* Hud.m */,
+			);
+			path = Hud;
+			sourceTree = "<group>";
+		};
+		DD200B262018F0350051CD39 /* Singleton */ = {
+			isa = PBXGroup;
+			children = (
+				DD200B272018F0350051CD39 /* MYManage.h */,
+				DD200B282018F0350051CD39 /* MYManage.m */,
+			);
+			path = Singleton;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -139,9 +514,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DD200AC02018CE7D0051CD39 /* Build configuration list for PBXNativeTarget "mayi_shop_app" */;
 			buildPhases = (
+				BAABEC2BBB063DE5B79A9618 /* [CP] Check Pods Manifest.lock */,
 				DD200A902018CE7B0051CD39 /* Sources */,
 				DD200A912018CE7B0051CD39 /* Frameworks */,
 				DD200A922018CE7B0051CD39 /* Resources */,
+				AB01D5BD643B32D80D486568 /* [CP] Embed Pods Frameworks */,
+				A42B35835829AD5DB612CFDF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -260,14 +638,88 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A42B35835829AD5DB612CFDF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AB01D5BD643B32D80D486568 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BAABEC2BBB063DE5B79A9618 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-mayi_shop_app-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DD200A902018CE7B0051CD39 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DD200A9C2018CE7C0051CD39 /* ViewController.m in Sources */,
+				DD200B222018E2B20051CD39 /* NSString+URLEncoded.m in Sources */,
+				DD200AFE2018E2410051CD39 /* MyNetworkRequest.m in Sources */,
+				DD200B292018F0350051CD39 /* MYManage.m in Sources */,
+				DD200AE52018D1AB0051CD39 /* UIView+MyFrame.m in Sources */,
+				DD200B252018E2B20051CD39 /* Hud.m in Sources */,
+				DD200AE82018D3170051CD39 /* BaseViewController.m in Sources */,
+				DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */,
 				DD200AA72018CE7C0051CD39 /* main.m in Sources */,
+				DD200B212018E2B20051CD39 /* NSString+MD5.m in Sources */,
+				DD200B1D2018E2B20051CD39 /* NSDictionary+GetSign.m in Sources */,
+				DD200B1C2018E2B20051CD39 /* NSDictionary+GetPropertyList.m in Sources */,
+				DD200AEB2018D3910051CD39 /* HomeViewController.m in Sources */,
+				DD200B012018E2710051CD39 /* Foundation+Log.m in Sources */,
+				DD200B1E2018E2B20051CD39 /* NSString+DealTimestamp.m in Sources */,
+				DD200B1F2018E2B20051CD39 /* NSString+GetWidth.m in Sources */,
+				DD200B232018E2B20051CD39 /* UITabBar+ShowTip.m in Sources */,
+				DD200AFD2018E2410051CD39 /* MayiURLManage.m in Sources */,
+				DD200AF42018D61F0051CD39 /* CategoryViewController.m in Sources */,
+				DD200AF12018D6100051CD39 /* CartViewController.m in Sources */,
 				DD200A992018CE7B0051CD39 /* AppDelegate.m in Sources */,
+				DD200AF72018D6280051CD39 /* MineViewController.m in Sources */,
+				DD200B202018E2B20051CD39 /* NSString+JKNormalRegex.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,29 +880,35 @@
 		};
 		DD200AC12018CE7D0051CD39 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B9E8D44A56943BC9B19498B0 /* Pods-mayi_shop_app.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74897WDG2G;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mayi_shop_app/PrefixHeader.pch";
 				INFOPLIST_FILE = mayi_shop_app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		DD200AC22018CE7D0051CD39 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 109596666D111078274A2428 /* Pods-mayi_shop_app.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 74897WDG2G;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/mayi_shop_app/PrefixHeader.pch";
 				INFOPLIST_FILE = mayi_shop_app/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.mayi-shop-app";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

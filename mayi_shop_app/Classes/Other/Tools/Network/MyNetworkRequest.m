@@ -8,7 +8,6 @@
 
 #import "MyNetworkRequest.h"
 #import "NSDictionary+GetSign.h"
-#import "LoginViewController.h"
 
 @implementation MyNetworkRequest
 
@@ -104,15 +103,15 @@
         if([stateCode isEqualToString:@"300"] || [stateCode isEqualToString:@"401"])
         {
 
-            UIViewController *currentVC = [self getCurrentVC];
-            LoginViewController *LVC = [LoginViewController new];
-            [currentVC presentViewController:LVC animated:YES completion:^{
-                
+//            UIViewController *currentVC = [self getCurrentVC];
+//            LoginViewController *LVC = [LoginViewController new];
+//            [currentVC presentViewController:LVC animated:YES completion:^{
+//
                 [Hud showText:@"登录信息过期，请重新登录" withTime:2];
-               
-            }];
-            
-            return ;
+//
+//            }];
+//
+//            return ;
         }
         
         if(![stateCode isEqualToString:@"200"]&&![dic[@"stateCode"] isEqualToString:@"200"])
