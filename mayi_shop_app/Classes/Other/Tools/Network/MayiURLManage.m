@@ -59,12 +59,14 @@
             break;
         case Cart:
         {
-            baseURL = @"/personal/home.htm"; // 购物车
+//            baseURL = @"/personal/home.htm"; // 购物车
+            baseURL = @"/cart/mycart.htm"; // 购物车
+           
         }
             break;
         case Mine:
         {
-            baseURL = @"/wxlogin/login.htm"; // 我的
+            baseURL = @"/personal/home.htm"; // 我的
         }
             break;
 

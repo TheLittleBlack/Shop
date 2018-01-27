@@ -17,9 +17,20 @@
     WYWebProgressLayer *_progressLayer; ///< 网页加载进度条
 }
 
+@property(nonatomic,strong)NSURLRequest *request;
+
 @end
 
 @implementation BaseViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    if(self.request)
+    {
+        [self.webView loadRequest:self.request];
+    }
+    
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,9 +66,9 @@
         _webView.userInteractionEnabled = YES;
         _webView.delegate = self;
         NSURL *url = [NSURL URLWithString:_urlString];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+        self.request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
 //        [_webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
-        [_webView loadRequest:request];
+        [_webView loadRequest:self.request];
     }
     return _webView;
 }
@@ -89,22 +100,35 @@
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
     NSURL *URL = request.URL;
-    MyLog(@"请求的URL：%@",URL);
+    NSString *urlStr = [NSString stringWithFormat:@"%@",URL];
+    MyLog(@"请求的URL：%@",urlStr);
     
-    NSArray *urlArray = [[NSString stringWithFormat:@"%@",URL] componentsSeparatedByString:@"."];
-    NSString *actionType = urlArray.lastObject;
+    
+    NSString *actionType = [urlStr stringByReplacingOccurrencesOfString:MainURL withString:@""];
+    
     MyLog(@"点击事件类型：%@",actionType);
     [self urlActionType:actionType];
     
-    NSString *urlStr = [NSString stringWithFormat:@"%@",URL];
-    NSString *lastStr = [urlStr substringWithRange:NSMakeRange(urlStr.length-4, 4)];
-    
-    // 自动返回
-    if([actionType isEqualToString:@"timeout"])
+    if([actionType containsString:@"/wxpay/pay.htm"]) // 调起微信支付标识
     {
+        MyLog(@"调起微信支付标识");
+    }
+    
+    if([actionType containsString:@"wxpay?outTradeNo"]) // 微信订单字符串
+    {
+        MyLog(@"微信订单字符串");
+        return NO;
+    }
 
-        [Hud showText:@"登录信息过期，请重新登录" withTime:2];
-        
+    if([actionType containsString:@"/alipay/pay.htm"]) // 调起支付宝支付
+    {
+        MyLog(@"调起支付宝支付");
+    }
+    
+    if([actionType containsString:@"alipay?out_trade_no"]) // 支付宝支付订单信息
+    {
+        MyLog(@"支付宝支付订单信息");
+        return NO;
     }
 
     
@@ -120,7 +144,7 @@
     MyLog(@"web加载出错：%@",[error localizedDescription]);
     [Hud stop];
     [_progressLayer finishedLoad];
-    [Hud showText:@"网络错误"];
+   
 }
 
 
