@@ -10,6 +10,7 @@
 #import "WYWebProgressLayer.h"
 #import "UIView+Frame.h"
 #import "WLWebProgressLayer.h"
+#import <JavaScriptCore/JavaScriptCore.h>
 
 @interface BaseViewController ()<UIWebViewDelegate>
 
@@ -94,6 +95,18 @@
     MyLog(@"加载完成");
     [Hud stop];
     [_progressLayer finishedLoad];
+    
+    
+    JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    
+    // 获取js调用的方法
+    context[@"wxLogin"] = ^(){
+        
+        NSArray *args = [JSContext currentArguments];
+        
+        NSLog(@"%@",args);
+        
+    };
     
 }
 
