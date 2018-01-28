@@ -35,6 +35,8 @@
 		DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B182018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m */; };
 		DD200B252018E2B20051CD39 /* Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B1B2018E2B20051CD39 /* Hud.m */; };
 		DD200B292018F0350051CD39 /* MYManage.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B282018F0350051CD39 /* MYManage.m */; };
+		DDD22A33201E055C00203F7D /* ScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */; };
+		DDD22A37201E05F000203F7D /* UIBarButtonItem+customItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD22A36201E05F000203F7D /* UIBarButtonItem+customItem.m */; };
 		DDE5068A201C779500E60EE8 /* NSTimer+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50681201C779500E60EE8 /* NSTimer+addition.m */; };
 		DDE5068B201C779500E60EE8 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50683201C779500E60EE8 /* UIView+Frame.m */; };
 		DDE5068C201C779500E60EE8 /* WLWebProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50685201C779500E60EE8 /* WLWebProgressLayer.m */; };
@@ -116,6 +118,10 @@
 		DD200B1B2018E2B20051CD39 /* Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hud.m; sourceTree = "<group>"; };
 		DD200B272018F0350051CD39 /* MYManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYManage.h; sourceTree = "<group>"; };
 		DD200B282018F0350051CD39 /* MYManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYManage.m; sourceTree = "<group>"; };
+		DDD22A31201E055C00203F7D /* ScanQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeViewController.h; sourceTree = "<group>"; };
+		DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
+		DDD22A35201E05F000203F7D /* UIBarButtonItem+customItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+customItem.h"; sourceTree = "<group>"; };
+		DDD22A36201E05F000203F7D /* UIBarButtonItem+customItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+customItem.m"; sourceTree = "<group>"; };
 		DDE50680201C779500E60EE8 /* NSTimer+addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSTimer+addition.h"; sourceTree = "<group>"; };
 		DDE50681201C779500E60EE8 /* NSTimer+addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSTimer+addition.m"; sourceTree = "<group>"; };
 		DDE50682201C779500E60EE8 /* UIView+Frame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
@@ -388,6 +394,8 @@
 			children = (
 				DD200AE62018D3170051CD39 /* BaseViewController.h */,
 				DD200AE72018D3170051CD39 /* BaseViewController.m */,
+				DDD22A31201E055C00203F7D /* ScanQRCodeViewController.h */,
+				DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -451,6 +459,7 @@
 		DD200B022018E2B20051CD39 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				DDD22A34201E05F000203F7D /* UIBarButtonItem */,
 				DD200B032018E2B20051CD39 /* NSDictionaryCategory */,
 				DD200B082018E2B20051CD39 /* NSStringCategory */,
 				DD200B132018E2B20051CD39 /* Tabbar */,
@@ -521,6 +530,15 @@
 				DD200B282018F0350051CD39 /* MYManage.m */,
 			);
 			path = Singleton;
+			sourceTree = "<group>";
+		};
+		DDD22A34201E05F000203F7D /* UIBarButtonItem */ = {
+			isa = PBXGroup;
+			children = (
+				DDD22A35201E05F000203F7D /* UIBarButtonItem+customItem.h */,
+				DDD22A36201E05F000203F7D /* UIBarButtonItem+customItem.m */,
+			);
+			path = UIBarButtonItem;
 			sourceTree = "<group>";
 		};
 		DDE5067E201C779500E60EE8 /* package */ = {
@@ -747,6 +765,7 @@
 				DD200AE52018D1AB0051CD39 /* UIView+MyFrame.m in Sources */,
 				DD200B252018E2B20051CD39 /* Hud.m in Sources */,
 				DD200AE82018D3170051CD39 /* BaseViewController.m in Sources */,
+				DDD22A33201E055C00203F7D /* ScanQRCodeViewController.m in Sources */,
 				DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */,
 				DD200AA72018CE7C0051CD39 /* main.m in Sources */,
 				DD200B212018E2B20051CD39 /* NSString+MD5.m in Sources */,
@@ -754,6 +773,7 @@
 				DD200B1D2018E2B20051CD39 /* NSDictionary+GetSign.m in Sources */,
 				DDE5068D201C779500E60EE8 /* WYWebController.m in Sources */,
 				DDE5068E201C779500E60EE8 /* WYWebProgressLayer.m in Sources */,
+				DDD22A37201E05F000203F7D /* UIBarButtonItem+customItem.m in Sources */,
 				DD200B1C2018E2B20051CD39 /* NSDictionary+GetPropertyList.m in Sources */,
 				DD200AEB2018D3910051CD39 /* HomeViewController.m in Sources */,
 				DD200B012018E2710051CD39 /* Foundation+Log.m in Sources */,

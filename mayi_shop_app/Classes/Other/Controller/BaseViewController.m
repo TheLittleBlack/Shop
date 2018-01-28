@@ -12,6 +12,7 @@
 #import "WLWebProgressLayer.h"
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <AlipaySDK/AlipaySDK.h>
+#import "ScanQRCodeViewController.h"
 
 @interface BaseViewController ()<UIWebViewDelegate>
 
@@ -195,6 +196,9 @@
 -(void)scanButtonAction
 {
     MyLog(@"扫一扫");
+    ScanQRCodeViewController *SQVC = [ScanQRCodeViewController new];
+    SQVC.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:SQVC animated:YES];
 }
 
 @end
