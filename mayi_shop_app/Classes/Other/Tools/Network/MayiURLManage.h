@@ -12,9 +12,9 @@
 
 typedef NS_ENUM(NSUInteger,MayiURLType) {
     
-    LoginURL , // 登录
     AlipayUrl, // 获取支付宝订单信息
     WXPay_Url, // 获取微信订单信息
+    
 };
 
 
@@ -24,6 +24,11 @@ typedef NS_ENUM(NSUInteger,MayiWebUrlType) {
     Category, // 分类
     Cart, // 购物车
     Mine, // 我的
+    PaySuccess, // 支付成功
+    PayFail, // 支付失败
+    BuySuccess, // 扫码购成功
+    BuyFail, // 扫码购失败
+    BuyCancel, // 扫码购取消
 
     
 };

@@ -18,11 +18,7 @@
     
     switch (MayiUrlType)
     {
-        case LoginURL:
-        {
-            baseURL = @"app/login.htm"; //登录
-        }
-            break;
+
         case AlipayUrl:
         {
             baseURL = @"/api/pay/get_alipay_property.htm"; //获取支付宝订单信息
@@ -71,7 +67,7 @@
             break;
         case Cart:
         {
-//            baseURL = @"/personal/home.htm"; // 购物车
+            
             baseURL = @"/cart/mycart.htm"; // 购物车
            
         }
@@ -81,7 +77,35 @@
             baseURL = @"/personal/home.htm"; // 我的
         }
             break;
+        case PaySuccess:
+        {
+            baseURL = @"/pay/success.htm?o="; // 支付成功   拼接上outTradeNo（交易单号）
+        }
+            break;
+        case PayFail:
+        {
+            baseURL = @"/pay/fail.htm?o="; // 支付失败   拼接上outTradeNo（交易单号）
+        }
+            break;
+        case BuySuccess:
+        {
+            baseURL = @"/scan_code_purchase/pay_success.htm"; // 扫码购成功
+        }
+            break;
+        case BuyFail:
+        {
+            baseURL = @"/scan_code_purchase/pay_defeat.htm"; // 扫码购失败
+        }
+            break;
+        case BuyCancel:
+        {
+            baseURL = @"/scan_code_purchase/pay_cancel.htm"; // 扫码购取消
+        }
+            break;
+            
+            
 
+            
             
     }
     
