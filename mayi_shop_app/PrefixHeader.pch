@@ -24,6 +24,8 @@
 
 #define SMID @"home_c6phlcqioh9p"   // 店铺id
 #define URLSchemes @"mayi_shop_app"  // 修改这里的URLSchemes后，也要到plist去修改
+#define WXSecret @"" // 微信应用密钥AppSecret
+#define WXAPPID @""  // 微信APPID
 
 
 //-----------------------------------------------------------------------

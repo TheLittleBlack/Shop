@@ -12,8 +12,9 @@
 #import "CartViewController.h"
 #import "MineViewController.h"
 #import <AlipaySDK/AlipaySDK.h>
+#import "WXApi.h"
 
-@interface AppDelegate ()
+@interface AppDelegate ()<WXApiDelegate>
 
 @property(nonatomic,strong)UITabBarController *tabBarController;
 
@@ -23,6 +24,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    
+    // 向微信终端程序注册第三方应用
+    [WXApi registerApp:WXAPPID];
     
     // 获取当前版本
     NSDictionary *infoDictionary = [[NSBundle mainBundle] infoDictionary];
@@ -208,6 +213,7 @@
     
     
     
+    
     return YES;
 }
 
@@ -233,5 +239,55 @@
     }
     return resultVC;
 }
+
+
+// 这个方法是用于从微信返回第三方App，无论是第三方登录还是分享都用到
+- (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
+    
+    [WXApi handleOpenURL:url delegate:self];
+    return YES;
+}
+
+// 发送一个sendReq后，收到微信的回应
+-(void) onResp:(BaseResp*)resp
+{
+    UIViewController *currentVC = [self topViewController];
+    
+    MyLog(@"%@",resp);
+    
+    /*
+     WXSuccess           = 0,    成功
+     WXErrCodeCommon     = -1,  普通错误类型
+     WXErrCodeUserCancel = -2,    用户点击取消并返回
+     WXErrCodeSentFail   = -3,   发送失败
+     WXErrCodeAuthDeny   = -4,    授权失败
+     WXErrCodeUnsupport  = -5,   微信不支持
+     
+     */
+    
+    if ([resp isKindOfClass:[SendAuthResp class]]) {   //授权登录的类。
+        if (resp.errCode == 0) {  //成功。
+            //发送通知。
+            SendAuthResp *resp2 = (SendAuthResp *)resp;
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"WXLoginSuccess" object:self userInfo:@{@"info":resp2.code}];
+            
+        }else{ //失败
+
+            UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"登录失败" message:nil preferredStyle:UIAlertControllerStyleAlert];
+            
+            [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                
+            }]];
+            
+            [currentVC presentViewController:alert animated:YES completion:^{
+            }];
+            
+        }
+    }
+    
+}
+
+
 
 @end
