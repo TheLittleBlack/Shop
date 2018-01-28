@@ -11,7 +11,7 @@
 #import "CategoryViewController.h"
 #import "CartViewController.h"
 #import "MineViewController.h"
-
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface AppDelegate ()
 
@@ -95,5 +95,142 @@
     
 }
 
+
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
+{
+    // 支付宝
+    if ([url.host isEqualToString:@"safepay"]) {
+        //处理支付结果
+        [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+            MyLog(@"支付宝: result = %@",resultDic);
+            
+            NSString *resultStatus; //支付结果
+            NSString *price; //本次支付价格
+            NSString *time; //支付时间
+            UIViewController *currentVC = [self topViewController];
+            
+            switch ([resultDic[@"resultStatus"] intValue])
+            {
+                    
+                case 9000:
+                {
+                    resultStatus = @"支付成功";
+                    
+                }
+                    break;
+                case 8000:
+                {
+                    resultStatus = @"正在处理中";
+                }
+                    break;
+                case 4000:
+                {
+                    resultStatus = @"支付失败";
+                }
+                    break;
+                case 5000:
+                {
+                    resultStatus = @"重复请求";
+                }
+                    break;
+                case 6001:
+                {
+                    resultStatus = @"取消支付";
+                }
+                    break;
+                case 6002:
+                {
+                    resultStatus = @"网络错误";
+                }
+                    break;
+                case 6004:
+                {
+                    resultStatus = @"支付结果未知";
+                }
+                    break;
+                    
+                default:
+                {
+                    resultStatus = @"未知错误";
+                }
+                    break;
+            }
+            
+            if([resultDic[@"resultStatus"] intValue] == 9000)
+            {
+                NSString *str = resultDic[@"result"];
+                
+                NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
+                NSDictionary *dicA = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
+                
+                MyLog(@"dicA = %@",dicA);
+                NSDictionary *dicB = dicA[@"alipay_trade_app_pay_response"];
+                time = dicB[@"timestamp"];
+                price = [NSString stringWithFormat:@"%@元",dicB[@"total_amount"]];
+                
+                
+                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"充值成功" message:[NSString stringWithFormat:@"本次充值:%@",price] preferredStyle:UIAlertControllerStyleAlert];
+                    
+                    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                        
+                    
+
+                        
+                        
+                    }]];
+                    
+                    [currentVC presentViewController:alert animated:YES completion:^{
+                    }];
+                    
+                
+                
+                
+            }
+            else
+            {
+                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"%@",resultStatus] preferredStyle:UIAlertControllerStyleAlert];
+                
+                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                    
+                }]];
+                
+                [currentVC presentViewController:alert animated:YES completion:^{
+                }];
+            }
+            
+            
+            
+            
+            
+        }];
+    }
+    
+    
+    
+    return YES;
+}
+
+
+
+//获取当前屏幕显示的viewcontroller
+- (UIViewController *)_topViewController:(UIViewController *)vc {
+    if ([vc isKindOfClass:[UINavigationController class]]) {
+        return [self _topViewController:[(UINavigationController *)vc topViewController]];
+    } else if ([vc isKindOfClass:[UITabBarController class]]) {
+        return [self _topViewController:[(UITabBarController *)vc selectedViewController]];
+    } else {
+        return vc;
+    }
+    return nil;
+}
+
+- (UIViewController *)topViewController {
+    UIViewController *resultVC;
+    resultVC = [self _topViewController:[[UIApplication sharedApplication].keyWindow rootViewController]];
+    while (resultVC.presentedViewController) {
+        resultVC = [self _topViewController:resultVC.presentedViewController];
+    }
+    return resultVC;
+}
 
 @end

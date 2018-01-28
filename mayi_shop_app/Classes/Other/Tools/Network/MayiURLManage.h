@@ -12,8 +12,9 @@
 
 typedef NS_ENUM(NSUInteger,MayiURLType) {
     
-    LoginURL ,//登录
-
+    LoginURL , // 登录
+    AlipayUrl, // 获取支付宝订单信息
+    WXPay_Url, // 获取微信订单信息
 };
 
 

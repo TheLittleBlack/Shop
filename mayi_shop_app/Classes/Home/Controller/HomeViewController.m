@@ -132,7 +132,7 @@
 //    NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];
 //    [cookieProperties setObject:@"ASESSIONID" forKey:NSHTTPCookieName];
 //    [cookieProperties setObject:token forKey:NSHTTPCookieValue];
-//    [cookieProperties setObject:WebMainURL forKey:NSHTTPCookieDomain];
+//    [cookieProperties setObject:MainURL forKey:NSHTTPCookieDomain];
 //    [cookieProperties setObject:@"/" forKey:NSHTTPCookiePath];
 //    [cookieProperties setObject:@"0" forKey:NSHTTPCookieVersion];
 //    [cookieProperties setObject:[[NSDate date] dateByAddingTimeInterval:60*60*24] forKey:NSHTTPCookieExpires];

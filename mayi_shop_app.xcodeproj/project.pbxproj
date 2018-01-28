@@ -687,6 +687,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app-resources.sh",
+				"${PODS_ROOT}/AliPay_SDK/AliPay-master/AlipaySDK.bundle",
 				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
 				"${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle",
 			);

@@ -11,6 +11,7 @@
 #import "UIView+Frame.h"
 #import "WLWebProgressLayer.h"
 #import <JavaScriptCore/JavaScriptCore.h>
+#import <AlipaySDK/AlipaySDK.h>
 
 @interface BaseViewController ()<UIWebViewDelegate>
 
@@ -116,10 +117,10 @@
     NSString *urlStr = [NSString stringWithFormat:@"%@",URL];
     MyLog(@"请求的URL：%@",urlStr);
     
-    
+    // 过滤main路径
     NSString *actionType = [urlStr stringByReplacingOccurrencesOfString:MainURL withString:@""];
     
-    MyLog(@"点击事件类型：%@",actionType);
+    MyLog(@"请求类型：%@",actionType);
     [self urlActionType:actionType];
     
     if([actionType containsString:@"/wxpay/pay.htm"]) // 调起微信支付标识
@@ -136,11 +137,28 @@
     if([actionType containsString:@"/alipay/pay.htm"]) // 调起支付宝支付
     {
         MyLog(@"调起支付宝支付");
+        
     }
     
     if([actionType containsString:@"alipay?out_trade_no"]) // 支付宝支付订单信息
     {
         MyLog(@"支付宝支付订单信息");
+        
+        // 处理 actionType
+        
+        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":@"out_trade_no=T_O_FK180127000003001&total_fee=6.10&subject=%E8%AE%A2%E5%8D%95+-+180127000003"} result:^(id result) {
+            
+            
+            
+        } error:^(id error) {
+            
+        } withHUD:YES];
+        
+        
+//                [[AlipaySDK defaultService] payOrder:@"out_trade_no=T_O_FK180127000003001&total_fee=6.10&subject=%E8%AE%A2%E5%8D%95+-+180127000003" fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
+//                    MyLog(@"reslut = %@",resultDic);
+//                }];
+        
         return NO;
     }
 

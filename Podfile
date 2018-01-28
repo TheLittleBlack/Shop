@@ -7,4 +7,5 @@ pod 'SVProgressHUD', '~> 2.1.2'
 pod 'MBProgressHUD', '~> 1.0.0'
 pod 'MJRefresh', '~> 3.1.12'
 pod 'Masonry', '~> 1.0.2'
+pod 'AliPay_SDK', '~> 3.0.0'
 end

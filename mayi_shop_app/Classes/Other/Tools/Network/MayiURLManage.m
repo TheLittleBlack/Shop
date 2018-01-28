@@ -23,6 +23,18 @@
             baseURL = @"app/login.htm"; //登录
         }
             break;
+        case AlipayUrl:
+        {
+            baseURL = @"/api/pay/get_alipay_property.htm"; //获取支付宝订单信息
+        }
+            break;
+        case WXPay_Url:
+        {
+            baseURL = @"/api/pay/wx_place_order.htm"; //获取微信订单信息
+        }
+            break;
+            
+            
 
     }
     
