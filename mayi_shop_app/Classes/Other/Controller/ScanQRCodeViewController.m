@@ -17,10 +17,10 @@
 #define SCREEN_WIDTH  [UIScreen mainScreen].bounds.size.width
 #define SCREEN_BOUNDS  [UIScreen mainScreen].bounds
 
-#define TOP (SCREEN_HEIGHT-220)/2 -64
+#define TOP (SCREEN_HEIGHT-220)/2
 #define LEFT (SCREEN_WIDTH-220)/2
 
-#define kScanRect CGRectMake(LEFT, TOP, 220, 220)
+#define kScanRect CGRectMake(LEFT, TOP - 64, 220, 220)
 
 @interface ScanQRCodeViewController ()<AVCaptureMetadataOutputObjectsDelegate,UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 
@@ -185,7 +185,7 @@
     CGFloat width = 220/SCREEN_WIDTH;
     CGFloat height = 220/SCREEN_HEIGHT;
     ///top 与 left 互换  width 与 height 互换
-    [_output setRectOfInterest:CGRectMake(top,left, height, width)];
+    [_output setRectOfInterest:CGRectMake(top ,left , height, width)];
     
     
     // Session
