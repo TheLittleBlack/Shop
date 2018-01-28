@@ -7,7 +7,6 @@
 //
 
 #import "MyNetworkRequest.h"
-#import "NSDictionary+GetSign.h"
 
 @implementation MyNetworkRequest
 
@@ -17,7 +16,7 @@
 +(void)postRequestWithUrl:(NSString *)urlString withPrameters:(NSDictionary *)dictionary result:(dataBlock)block error:(errorBlock)errorBlock withHUD:(BOOL)HUD
 {
     
-     NSString *sign = [dictionary getSignString];
+  
 
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -37,43 +36,39 @@
     //转为可变字典
     NSMutableDictionary *mDictionary = [NSMutableDictionary dictionaryWithDictionary:dictionary];
     
-    //如果token有值，则添加到字典中
-    NSString *token = [[NSUserDefaults standardUserDefaults] objectForKey:@"token"];
+    //如果User-Agent有值
+    NSString *userAgent = [[NSUserDefaults standardUserDefaults] objectForKey:@"User-Agent"];
+    
+    
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:urlString]];
+    NSString *cookieValue ;
+    
 
-    if(token)
+    
+    for (int i = 0; i<cookies.count; i++) {
+        
+        NSHTTPCookie *cookie = cookies[i];
+        MyLog(@"%@",cookie);
+        if( [cookie.name isEqualToString:@"MAYI_SHOP_COOKIE_ID"])
+        {
+            cookieValue = cookie.value;
+        }
+    
+    }
+    MyLog(@"-------------------%@------------------",cookieValue);
+
+    if(userAgent)
     {
-        
-        
-        //获取URLString最后一截 有些接口不需要拼接sessionID
-        NSString *urlStringLastPathComponent = urlString.lastPathComponent;
-        
-        if([urlStringLastPathComponent isEqualToString:@"?????.htm"]) //目前需排的接口
-        {
- 
-        }
-        //其余接口都拼接上sessionID
-        else
-        {
-            [mDictionary setObject:token forKey:@"token"];
+        // 添加请求头
 
-            // 添加请求头
+        [manager.requestSerializer setValue:userAgent forHTTPHeaderField:@"User-Agent"];
+        [manager.requestSerializer setValue:cookieValue forHTTPHeaderField:@"Cookie"];
 
-            // 事实上并没有什么卵用？
-            [manager.requestSerializer setValue:token forHTTPHeaderField:@"EX-Token"];
-            [manager.requestSerializer setValue:[NSString stringWithFormat:@"ASESSIONID=%@; Secure; HttpOnly",token] forHTTPHeaderField:@"Cookie"];
-
-
-        }
-        
-        
     }
     
 
     
-    
-    //将sign加进字典
-    [mDictionary setValue:sign forKey:@"sign"];
-    
+
     MyLog(@"完整参数:%@",mDictionary);
     
     

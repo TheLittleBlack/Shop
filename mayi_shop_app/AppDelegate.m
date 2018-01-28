@@ -35,6 +35,7 @@
     // 设置自定义 UserAgent 用于区分app调用H5  WebView会自动从NSUserDefaults中拿到UserAgent
     NSDictionary * dictionnary = [[NSDictionary alloc] initWithObjectsAndKeys:UserAgentString, @"UserAgent", nil];
     [[NSUserDefaults standardUserDefaults] registerDefaults:dictionnary];
+    [[NSUserDefaults standardUserDefaults] setObject:UserAgentString forKey:@"User-Agent"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
 
