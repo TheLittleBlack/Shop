@@ -67,9 +67,7 @@
             break;
         case Cart:
         {
-            
             baseURL = @"/cart/mycart.htm"; // 购物车
-           
         }
             break;
         case Mine:
@@ -102,11 +100,44 @@
             baseURL = @"/scan_code_purchase/pay_cancel.htm"; // 扫码购取消
         }
             break;
-            
+        case EnterShopSuccess:
+        {
+            baseURL = @"/enter_the_store_pay/pay_success.htm"; // 进店购成功
+        }
+            break;
+        case EnterShopFail:
+        {
+            baseURL = @"/enter_the_store_pay/pay_defeat.htm"; // 进店购失败
+        }
+            break;
+        case EnterShopCancel:
+        {
+            baseURL = @"/enter_the_store_pay/pay_cancel.htm"; // 进店购取消
+        }
+            break;
+        case WXLogin:
+        {
+            baseURL = @"/wxlogin/login.htm?app_login_code="; // 微信登录
+        }
+            break;
+        case FindNearByShop:
+        {
+            baseURL = @"/nearby_shop/find_nearby_shop.htm"; // 附近门店列表
+        }
+            break;
+        case CallShop:
+        {
+            baseURL = @"/nearby_shop/push_information.htm"; // 呼叫门店
+        }
+            break;
+        case CancelCallShop:
+        {
+            baseURL = @"/nearby_shop/cancel_call_out.htm"; // 取消呼叫门店
+        }
+            break;
             
 
-            
-            
+
     }
     
     // 判断环境    0 使用测试服务器     1 使用正式服务器

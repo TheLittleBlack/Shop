@@ -24,15 +24,16 @@
 
 -(void)searchButtonAction
 {
-    if (![WXApi isWXAppInstalled]) {
+    // 这个判断有毒
+//    if (![WXApi isWXAppInstalled]) {
         SendAuthReq *req = [[SendAuthReq alloc] init];
         req.scope = @"snsapi_userinfo";
         req.state = @"mayi_shop";
         [WXApi sendReq:req];
-    }
-    else {
-        [self setupAlertController];
-    }
+//    }
+//    else {
+//        [self setupAlertController];
+//    }
 }
 
 
@@ -48,8 +49,15 @@
 
 -(void)WXLoginSuccess:(NSNotification *)notification
 {
-    MyLog(@"登录成功，接下来获取access_token及用户信息");
+    
+    MyLog(@"登录授权成功，接下来获取access_token及用户信息");
     NSString *code = notification.userInfo[@"info"];
+    
+    NSString *loginURL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:WXLogin],code];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:loginURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+    [self.webView loadRequest:request];
+    
+    MyLog(@"%@",loginURL);
     
     __weak typeof(*&self) weakSelf = self;
 

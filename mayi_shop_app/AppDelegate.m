@@ -104,6 +104,9 @@
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options
 {
+    
+    NSString *urlString = [NSString stringWithFormat:@"%@",url];
+    
     // 支付宝
     if ([url.host isEqualToString:@"safepay"]) {
         //处理支付结果
@@ -212,6 +215,22 @@
     }
     
     
+    // 微信跳转回来的
+    
+    if([urlString containsString:WXAPPID])
+    {
+        // 分割获取code  @"wxfe2e1687ec8a27af://oauth?code=001SpTig1XcNJy0pDAjg1kExig1SpTiz&state=mayi_shop"
+        
+        NSArray *arrayA = [urlString componentsSeparatedByString:@"code="];
+        NSString *stringA = arrayA[1];
+        NSArray *arrayB = [stringA componentsSeparatedByString:@"&"];
+        NSString *code = arrayB[0];
+        
+        MyLog(@"%@",code);
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"WXLoginSuccess" object:self userInfo:@{@"info":code}];
+        
+    }
     
     
     return YES;
@@ -240,6 +259,19 @@
     return resultVC;
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+// ★下面两个方法好像没用噢
 
 // 这个方法是用于从微信返回第三方App，无论是第三方登录还是分享都用到
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -287,6 +319,8 @@
     }
     
 }
+
+
 
 
 

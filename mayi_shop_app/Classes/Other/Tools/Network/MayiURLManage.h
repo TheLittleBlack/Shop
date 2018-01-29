@@ -29,7 +29,14 @@ typedef NS_ENUM(NSUInteger,MayiWebUrlType) {
     BuySuccess, // 扫码购成功
     BuyFail, // 扫码购失败
     BuyCancel, // 扫码购取消
-
+    EnterShopSuccess, // 进店购成功
+    EnterShopFail, //  进店购失败
+    EnterShopCancel, //  进店购取消
+    WXLogin, // 微信登录
+    FindNearByShop, // 附近门店列表
+    CallShop, // 呼叫门店
+    CancelCallShop, //取消呼叫门店
+    
     
 };
 

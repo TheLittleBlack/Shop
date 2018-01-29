@@ -102,7 +102,7 @@
     JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
     // 获取js调用的方法
-    context[@"wxLogin"] = ^(){
+    context[@"WXLogin"] = ^(){
         
         NSArray *args = [JSContext currentArguments];
         
