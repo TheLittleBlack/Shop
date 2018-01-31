@@ -7,10 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <JavaScriptCore/JavaScriptCore.h>
 
-@interface BaseViewController : UIViewController
+@protocol TestJSExport <JSExport>
+- (void)ScanCode;
+- (void)WXLogin;
+@end
+
+
+@interface BaseViewController : UIViewController<UIWebViewDelegate,TestJSExport>
 
 @property(nonatomic,strong)UIWebView *webView;
 @property(nonatomic,copy)NSString *urlString;
+@property (strong, nonatomic) JSContext *context;
+
+
 
 @end

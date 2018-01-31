@@ -100,16 +100,18 @@
     [_progressLayer finishedLoad];
     
     
-    JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    
-    // 获取js调用的方法
-    context[@"ScanCode"] = ^(){
-        
-        NSArray *args = [JSContext currentArguments];
-        
-        NSLog(@"%@",args);
-        
+    self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
+    // 打印异常
+    self.context.exceptionHandler =
+    ^(JSContext *context, JSValue *exceptionValue)
+    {
+        context.exception = exceptionValue;
+        NSLog(@"%@", exceptionValue);
     };
+    
+    // 以 JSExport 协议关联 native 的方法
+    self.context[@"ScanCode"] = self;
+
     
 
 }
@@ -233,6 +235,16 @@
     ScanQRCodeViewController *SQVC = [ScanQRCodeViewController new];
     SQVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:SQVC animated:YES];
+}
+
+
+- (void)ScanCode
+{
+    MyLog(@"sss");
+}
+- (void)WXLogin
+{
+    MyLog(@"aaa");
 }
 
 

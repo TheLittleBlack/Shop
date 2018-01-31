@@ -201,9 +201,25 @@
         [_session addOutput:self.output];
     }
     
-    // 条码类型 AVMetadataObjectTypeQRCode
-    [_output setMetadataObjectTypes:[NSArray arrayWithObjects:AVMetadataObjectTypeQRCode, nil]];
     
+    NSArray *typeArray = @[AVMetadataObjectTypeQRCode,// 二维码
+                           AVMetadataObjectTypeCode128Code, // 条形码
+                           ];
+    // 类型
+    [_output setMetadataObjectTypes:typeArray];
+
+    // 所有条形码类型
+//    AVMetadataObjectTypeEAN13Code,
+//    AVMetadataObjectTypeEAN8Code,
+//    AVMetadataObjectTypeUPCECode,
+//    AVMetadataObjectTypeCode39Code,
+//    AVMetadataObjectTypeCode39Mod43Code,
+//    AVMetadataObjectTypeCode93Code,
+//    AVMetadataObjectTypeCode128Code,
+//    AVMetadataObjectTypePDF417Code
+    
+    
+
     // Preview
     _preview =[AVCaptureVideoPreviewLayer layerWithSession:_session];
     _preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
