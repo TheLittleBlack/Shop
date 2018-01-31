@@ -7,6 +7,7 @@
 //
 
 #import "MyNetworkRequest.h"
+#import "NSDictionary+GetSign.h"
 
 @implementation MyNetworkRequest
 
@@ -16,7 +17,7 @@
 +(void)postRequestWithUrl:(NSString *)urlString withPrameters:(NSDictionary *)dictionary result:(dataBlock)block error:(errorBlock)errorBlock withHUD:(BOOL)HUD
 {
     
-  
+    
 
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -66,8 +67,11 @@
 
     }
     
-
+    [mDictionary setValue:cookieValue forKey:@"MAYI_POS_GUIDE_API_SID"];
     
+    NSString *code = [mDictionary getSignString];
+    
+    [mDictionary setValue:code forKey:@"code"];
 
     MyLog(@"完整参数:%@",mDictionary);
     

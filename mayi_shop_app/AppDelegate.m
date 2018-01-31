@@ -232,6 +232,7 @@
         
     }
     
+    [WXApi handleOpenURL:url delegate:nil];
     
     return YES;
 }
@@ -318,8 +319,35 @@
         }
     }
     
+    
+    if ([resp isKindOfClass:[PayResp class]]) {
+        
+        PayResp *response = (PayResp *)resp;
+        
+        [self managerDidRecvPaymentResponse:response];
+        
+    }
+    
+
 }
 
+
+
+- (void)managerDidRecvPaymentResponse:(PayResp *)response {
+    switch (response.errCode) {
+        case WXSuccess:
+            MyLog(@"微信支付成功");
+            break;
+        case WXErrCodeUserCancel:
+            MyLog(@"微信支付取消");
+            break;
+        default:{
+            MyLog(@"微信支付失败");
+        }
+            
+            break;
+    }
+}
 
 
 

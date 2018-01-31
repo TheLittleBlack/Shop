@@ -13,6 +13,7 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 #import <AlipaySDK/AlipaySDK.h>
 #import "ScanQRCodeViewController.h"
+#import "WXApi.h"
 
 @interface BaseViewController ()<UIWebViewDelegate>
 
@@ -102,7 +103,7 @@
     JSContext *context=[webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
     // 获取js调用的方法
-    context[@"WXLogin"] = ^(){
+    context[@"ScanCode"] = ^(){
         
         NSArray *args = [JSContext currentArguments];
         
@@ -133,6 +134,39 @@
     if([actionType containsString:@"wxpay?outTradeNo"]) // 微信订单字符串
     {
         MyLog(@"微信订单字符串");
+        
+        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:WXPay_Url] withPrameters:@{@"outTradeNo":@"T_O_FK180127000003001"} result:^(id result) { //
+            
+            
+            
+        } error:^(id error) {
+            
+        } withHUD:YES];
+        
+        
+        
+        PayReq *req = [[PayReq alloc] init];
+        
+        // 全都从api获取
+//        req.openID = WXAPPID;
+//        req.partnerId = [wechatPayDic objectForKey:@"partnerId"];
+//        req.prepayId = [wechatPayDic objectForKey:@"prepayId"];
+//        req.package = @"Sign=WXPay";
+//        req.nonceStr = [NSString stringWithFormat:@"%u",arc4random_uniform(10000000)];
+//        req.timeStamp = [[NSDate date] timeIntervalSince1970] * 1000;
+//        req.sign = [wechatPayDic objectForKey:@"sign"];
+        [WXApi sendReq:req];
+        
+//        req.appId = (String) map.get("appid");
+//        req.partnerId = (String) map.get("partnerid");
+//        req.prepayId = (String) map.get("prepayid");
+//        req.packageValue = (String) map.get("package");
+//        req.nonceStr = (String) map.get("noncestr");
+//        req.timeStamp = (String) map.get("timestamp");
+//        req.sign = (String) map.get("sign");
+        
+        
+
         return NO;
     }
 
@@ -148,7 +182,7 @@
         
         // 处理 actionType
         
-        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":@"out_trade_no=T_O_FK180127000003001&total_fee=6.10&subject=%E8%AE%A2%E5%8D%95+-+180127000003"} result:^(id result) {
+        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":@"T_O_FK180127000003001"} result:^(id result) { // 
             
             
             
@@ -200,5 +234,9 @@
     SQVC.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:SQVC animated:YES];
 }
+
+
+
+
 
 @end

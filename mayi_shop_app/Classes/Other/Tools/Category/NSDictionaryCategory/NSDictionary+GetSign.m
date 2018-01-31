@@ -18,20 +18,8 @@
     NSString *string =  [self getKeyValueString];
     MyLog(@"拼接后的字符串:%@",string);
     
-    // 3.拼接后的字符串如果长度超过100，则取前100个字符
-    if(string.length>100)
-    {
-       string =  [string substringToIndex:100];
-    }
-    
-    MyLog(@"过滤长度超过100:%@",string);
-    
-    //将 string 拼接上 jsy:mayi
-    NSString *stringB = [string stringByAppendingString:@"jsy:mayi"];
-    MyLog(@"加盐:%@",stringB);
-    
     //再进行MD5加密 得到sign
-    NSString *sign = [stringB encryptionWithMD5];
+    NSString *sign = [string encryptionWithMD5];
     
     MyLog(@"加密后的code值:%@",sign);
     
@@ -70,7 +58,7 @@
     {
         NSString *key = resultArray[i];
         // 排除掉 sign token dataFile
-        if(![key isEqualToString:@"sign"] && ![key isEqualToString:@"token"] && ![key isEqualToString:@"dataFile"])
+        if(![key isEqualToString:@"code"] && ![key isEqualToString:@"token"] && ![key isEqualToString:@"sessionId"])
         {
             if(i==0)
             {
