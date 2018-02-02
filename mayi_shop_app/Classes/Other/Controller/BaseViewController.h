@@ -10,8 +10,9 @@
 #import <JavaScriptCore/JavaScriptCore.h>
 
 @protocol TestJSExport <JSExport>
-- (void)ScanCode;
-- (void)WXLogin;
+
+- (void)wxLogin;
+
 @end
 
 

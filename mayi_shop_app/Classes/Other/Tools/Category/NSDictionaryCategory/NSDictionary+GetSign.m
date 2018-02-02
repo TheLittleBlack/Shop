@@ -33,8 +33,8 @@
     //如果只有1个键值对 则直接拼接
     if(self.keyEnumerator.allObjects.count ==1)
     {
-        NSString *string = [NSString stringWithFormat:@"%@=%@",self.allKeys.firstObject,self.allValues.firstObject];
-        
+        NSString *string = [NSString stringWithFormat:@"%@",self.allValues.firstObject];
+        string = [string stringByAppendingString:Salt];
         return string;
     }
     
@@ -60,17 +60,14 @@
         // 排除掉 sign token dataFile
         if(![key isEqualToString:@"code"] && ![key isEqualToString:@"token"] && ![key isEqualToString:@"sessionId"])
         {
-            if(i==0)
-            {
-                stringA = [NSString stringWithFormat:@"%@=%@",resultArray[0],self[resultArray[0]]];
-            }
-            else
-            {
-                stringA = [stringA stringByAppendingString:[NSString stringWithFormat:@"&%@=%@",resultArray[i],self[resultArray[i]]]];
-            }
+            
+            stringA = [stringA stringByAppendingString:[NSString stringWithFormat:@"%@",self[resultArray[i]]]];
+            
         }
 
     }
+    
+    stringA = [stringA stringByAppendingString:Salt];
     
     return stringA;
     
@@ -89,6 +86,16 @@
     return sortArray;
     
     
+}
+
+
+//降序
+-(NSArray *)descendingOrderWithArray:(NSArray *)array
+{
+    NSArray *newArray = [self ascendingWithArray:array];
+    newArray =  [[newArray reverseObjectEnumerator] allObjects];
+    MyLog(@"降序后:%@",newArray);
+    return newArray;
 }
 
 @end

@@ -25,7 +25,9 @@
     [super viewDidLoad];
     
     [self addLoadImage];
-    
+    // 清空暂存的 outTradeNo
+    [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"outTradeNo"];
+
     
 }
 

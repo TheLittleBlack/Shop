@@ -9,6 +9,7 @@
 #import "ScanQRCodeViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "UIBarButtonItem+customItem.h"
+#import "ScanCodeBuyViewController.h"
 
 /**
  *  屏幕 高 宽 边界
@@ -62,7 +63,7 @@
 {
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem BackButtonItemWithTarget:self action:@selector(back)];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"image222"] style:UIBarButtonItemStylePlain target:self action:@selector(choosePicture)];
+//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"image222"] style:UIBarButtonItemStylePlain target:self action:@selector(choosePicture)];
     
     
 }
@@ -260,7 +261,12 @@
         //            MyLog(@"%@",temp);
         //        }
         
-        [self dealQRString:stringValue];
+        ScanCodeBuyViewController *SMGVC = [ScanCodeBuyViewController new];
+        SMGVC.urlString = stringValue;
+        [self.navigationController pushViewController:SMGVC animated:YES];
+        
+        
+//        [self dealQRString:stringValue];
         
         
     }
@@ -271,16 +277,33 @@
 //处理扫描到的信息
 -(void)dealQRString:(NSString *)QRString
 {
+    // 判断扫描结果  http://test.m.mayi118.com/scan_code_purchase/index/sc/100013
+    if([QRString containsString:@"scan_code_purchase"])
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"二维码信息" message:QRString preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+    else
+    {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请扫描门店二维码" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+            
+ 
+            [_session startRunning];
+            timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
+            
+        }]];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
     
     
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"二维码信息" message:QRString preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-        
-        [self.navigationController popViewControllerAnimated:YES];
-        
-    }]];
-    [self presentViewController:alert animated:YES completion:nil];
+
     
     
 

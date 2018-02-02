@@ -67,7 +67,8 @@
 
     }
     
-    [mDictionary setValue:cookieValue forKey:@"MAYI_POS_GUIDE_API_SID"];
+    // 通过抓包发现并没有加这个东西？
+//    [mDictionary setValue:cookieValue forKey:@"MAYI_POS_GUIDE_API_SID"];
     
     NSString *code = [mDictionary getSignString];
     
@@ -94,7 +95,7 @@
         
         MyLog(@"%@",dic);
         
-        NSString *stateCode = [NSString stringWithFormat:@"%@",dic[@"code"]];
+        NSString *stateCode = [NSString stringWithFormat:@"%@",dic[@"stateCode"]];
         
         
         
@@ -113,9 +114,9 @@
 //            return ;
         }
         
-        if(![stateCode isEqualToString:@"200"]&&![dic[@"stateCode"] isEqualToString:@"200"])
+        if(![stateCode isEqualToString:@"200"]&&![stateCode isEqualToString:@"100"])
         {
-            [Hud showText:dic[@"msg"]];
+            [Hud showText:dic[@"message"]];
             return;
         }
         

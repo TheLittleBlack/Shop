@@ -58,6 +58,7 @@
         
     }];
     
+    
 }
 
 
@@ -137,36 +138,34 @@
     {
         MyLog(@"微信订单字符串");
         
-        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:WXPay_Url] withPrameters:@{@"outTradeNo":@"T_O_FK180127000003001"} result:^(id result) { //
+        // 获取outTradeNo
+        NSArray *array = [actionType componentsSeparatedByString:@"outTradeNo="];
+        NSString *outTradeNo = array[1];
+        [[NSUserDefaults standardUserDefaults] setObject:outTradeNo forKey:@"outTradeNo"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:WXPay_Url] withPrameters:@{@"outTradeNo":outTradeNo} result:^(id result) {
             
-            
+            NSString *dataString = result[@"data"];
+            // json转字典
+            NSData *jsonData = [dataString dataUsingEncoding:NSUTF8StringEncoding];
+            NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                                options:NSJSONReadingMutableContainers
+                                                                  error:nil];
+      
+            // 跳转微信支付
+            PayReq *req = [[PayReq alloc] init];
+            req.openID = WXAPPID;
+            req.partnerId = [data objectForKey:@"partnerid"];
+            req.prepayId = [data objectForKey:@"prepayid"];
+            req.package = [data objectForKey:@"package"];
+            req.nonceStr = [data objectForKey:@"noncestr"];
+            req.timeStamp = [[data objectForKey:@"timestamp"] unsignedIntValue];
+            req.sign = [data objectForKey:@"sign"];
+            [WXApi sendReq:req];
             
         } error:^(id error) {
             
         } withHUD:YES];
-        
-        
-        
-        PayReq *req = [[PayReq alloc] init];
-        
-        // 全都从api获取
-//        req.openID = WXAPPID;
-//        req.partnerId = [wechatPayDic objectForKey:@"partnerId"];
-//        req.prepayId = [wechatPayDic objectForKey:@"prepayId"];
-//        req.package = @"Sign=WXPay";
-//        req.nonceStr = [NSString stringWithFormat:@"%u",arc4random_uniform(10000000)];
-//        req.timeStamp = [[NSDate date] timeIntervalSince1970] * 1000;
-//        req.sign = [wechatPayDic objectForKey:@"sign"];
-        [WXApi sendReq:req];
-        
-//        req.appId = (String) map.get("appid");
-//        req.partnerId = (String) map.get("partnerid");
-//        req.prepayId = (String) map.get("prepayid");
-//        req.packageValue = (String) map.get("package");
-//        req.nonceStr = (String) map.get("noncestr");
-//        req.timeStamp = (String) map.get("timestamp");
-//        req.sign = (String) map.get("sign");
-        
         
 
         return NO;
@@ -182,22 +181,35 @@
     {
         MyLog(@"支付宝支付订单信息");
         
-        // 处理 actionType
-        
-        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":@"T_O_FK180127000003001"} result:^(id result) { // 
+        // 获取outTradeNo
+        NSArray *array = [actionType componentsSeparatedByString:@"outTradeNo="];
+        NSString *outTradeNo = array[1];
+        [[NSUserDefaults standardUserDefaults] setObject:outTradeNo forKey:@"outTradeNo"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":outTradeNo} result:^(id result) {
             
-            
+//            [[AlipaySDK defaultService] payOrder:@"out_trade_no=T_O_FK180127000003001&total_fee=6.10&subject=%E8%AE%A2%E5%8D%95+-+180127000003" fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
+//                MyLog(@"reslut = %@",resultDic);
+//            }];
             
         } error:^(id error) {
             
         } withHUD:YES];
         
         
-//                [[AlipaySDK defaultService] payOrder:@"out_trade_no=T_O_FK180127000003001&total_fee=6.10&subject=%E8%AE%A2%E5%8D%95+-+180127000003" fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
-//                    MyLog(@"reslut = %@",resultDic);
-//                }];
+
         
         return NO;
+    }
+    
+    if([actionType containsString:@"login.htm"]) // 登录拦截
+    {
+        if(self.tabBarController.selectedIndex!=3)
+        {
+            self.tabBarController.selectedIndex = 3; // 跳转
+            return NO;
+        }
+        
     }
 
     
@@ -238,14 +250,23 @@
 }
 
 
-- (void)ScanCode
+
+- (void)wxLogin
 {
-    MyLog(@"sss");
+    MyLog(@"微信登录");
+    
+    // 这个判断有毒
+    //    if (![WXApi isWXAppInstalled]) {
+    SendAuthReq *req = [[SendAuthReq alloc] init];
+    req.scope = @"snsapi_userinfo";
+    req.state = @"mayi_shop";
+    [WXApi sendReq:req];
+    //    }
+    //    else {
+    //        [self setupAlertController];
+    //    }
 }
-- (void)WXLogin
-{
-    MyLog(@"aaa");
-}
+
 
 
 

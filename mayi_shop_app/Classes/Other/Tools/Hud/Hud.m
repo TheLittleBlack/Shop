@@ -37,14 +37,17 @@
 
 +(void)showText:(NSString *)text
 {
+    if(![text isEqualToString:@"null"])
+    {
+        UIView *view = [self getView];
+        MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
+        hud.mode = MBProgressHUDModeText;
+        hud.label.text = text;
+        hud.label.font = [UIFont systemFontOfSize:15];
+        [hud showAnimated:YES];
+        [hud hideAnimated:YES afterDelay:1.5];
+    }
 
-    UIView *view = [self getView];
-    MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
-    hud.mode = MBProgressHUDModeText;
-    hud.label.text = text;
-    hud.label.font = [UIFont systemFontOfSize:15];
-    [hud showAnimated:YES];
-    [hud hideAnimated:YES afterDelay:1.5];
 }
 
 +(void)showText:(NSString *)text withTime:(CGFloat)timeInterval

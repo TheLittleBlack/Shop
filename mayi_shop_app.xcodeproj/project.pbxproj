@@ -35,6 +35,7 @@
 		DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B182018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m */; };
 		DD200B252018E2B20051CD39 /* Hud.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B1B2018E2B20051CD39 /* Hud.m */; };
 		DD200B292018F0350051CD39 /* MYManage.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200B282018F0350051CD39 /* MYManage.m */; };
+		DD4D5BD120237591005138DD /* ScanCodeBuyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD4D5BD020237591005138DD /* ScanCodeBuyViewController.m */; };
 		DDD22A33201E055C00203F7D /* ScanQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */; };
 		DDD22A37201E05F000203F7D /* UIBarButtonItem+customItem.m in Sources */ = {isa = PBXBuildFile; fileRef = DDD22A36201E05F000203F7D /* UIBarButtonItem+customItem.m */; };
 		DDE5068A201C779500E60EE8 /* NSTimer+addition.m in Sources */ = {isa = PBXBuildFile; fileRef = DDE50681201C779500E60EE8 /* NSTimer+addition.m */; };
@@ -118,6 +119,8 @@
 		DD200B1B2018E2B20051CD39 /* Hud.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Hud.m; sourceTree = "<group>"; };
 		DD200B272018F0350051CD39 /* MYManage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MYManage.h; sourceTree = "<group>"; };
 		DD200B282018F0350051CD39 /* MYManage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MYManage.m; sourceTree = "<group>"; };
+		DD4D5BCF20237591005138DD /* ScanCodeBuyViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanCodeBuyViewController.h; sourceTree = "<group>"; };
+		DD4D5BD020237591005138DD /* ScanCodeBuyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanCodeBuyViewController.m; sourceTree = "<group>"; };
 		DDD22A31201E055C00203F7D /* ScanQRCodeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanQRCodeViewController.h; sourceTree = "<group>"; };
 		DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanQRCodeViewController.m; sourceTree = "<group>"; };
 		DDD22A35201E05F000203F7D /* UIBarButtonItem+customItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+customItem.h"; sourceTree = "<group>"; };
@@ -394,6 +397,8 @@
 			children = (
 				DD200AE62018D3170051CD39 /* BaseViewController.h */,
 				DD200AE72018D3170051CD39 /* BaseViewController.m */,
+				DD4D5BCF20237591005138DD /* ScanCodeBuyViewController.h */,
+				DD4D5BD020237591005138DD /* ScanCodeBuyViewController.m */,
 				DDD22A31201E055C00203F7D /* ScanQRCodeViewController.h */,
 				DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */,
 			);
@@ -771,6 +776,7 @@
 				DD200B212018E2B20051CD39 /* NSString+MD5.m in Sources */,
 				DDE5068C201C779500E60EE8 /* WLWebProgressLayer.m in Sources */,
 				DD200B1D2018E2B20051CD39 /* NSDictionary+GetSign.m in Sources */,
+				DD4D5BD120237591005138DD /* ScanCodeBuyViewController.m in Sources */,
 				DDE5068D201C779500E60EE8 /* WYWebController.m in Sources */,
 				DDE5068E201C779500E60EE8 /* WYWebProgressLayer.m in Sources */,
 				DDD22A37201E05F000203F7D /* UIBarButtonItem+customItem.m in Sources */,

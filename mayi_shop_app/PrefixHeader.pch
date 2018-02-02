@@ -17,6 +17,7 @@
 
 
 #if ConfigureServer == 0
+//#define MainURL @"http://Ls.suasong.com"
 #define MainURL @"http://test.m.mayi118.com"
 #else
 #define MainURL @"http://m.hlwjd.cn"
@@ -26,6 +27,7 @@
 #define URLSchemes @"mayi_shop_app"                   // 修改这里的URLSchemes后，也要到plist去修改
 #define WXSecret @"53a8588091b2ed7608fdfdb353bec390" // 微信应用密钥AppSecret
 #define WXAPPID @"wxfe2e1687ec8a27af"                // 微信APPID
+#define Salt @"c548ed61f9081da9d9"                   // code 的盐
 
 
 //-----------------------------------------------------------------------

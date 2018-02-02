@@ -22,19 +22,6 @@
     
 }
 
--(void)searchButtonAction
-{
-    // 这个判断有毒
-//    if (![WXApi isWXAppInstalled]) {
-        SendAuthReq *req = [[SendAuthReq alloc] init];
-        req.scope = @"snsapi_userinfo";
-        req.state = @"mayi_shop";
-        [WXApi sendReq:req];
-//    }
-//    else {
-//        [self setupAlertController];
-//    }
-}
 
 
 

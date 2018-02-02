@@ -13,6 +13,7 @@
 #import "MineViewController.h"
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
+#import "BaseViewController.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -214,21 +215,57 @@
         }];
     }
     
-    
+
     // 微信跳转回来的
-    
     if([urlString containsString:WXAPPID])
     {
-        // 分割获取code  @"wxfe2e1687ec8a27af://oauth?code=001SpTig1XcNJy0pDAjg1kExig1SpTiz&state=mayi_shop"
-        
-        NSArray *arrayA = [urlString componentsSeparatedByString:@"code="];
-        NSString *stringA = arrayA[1];
-        NSArray *arrayB = [stringA componentsSeparatedByString:@"&"];
-        NSString *code = arrayB[0];
-        
-        MyLog(@"%@",code);
-        
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"WXLoginSuccess" object:self userInfo:@{@"info":code}];
+        // 登录回调
+        if([urlString containsString:@"oauth"])
+        {
+            // 分割获取code  @"wxfe2e1687ec8a27af://oauth?code=001SpTig1XcNJy0pDAjg1kExig1SpTiz&state=mayi_shop"
+            
+            NSArray *arrayA = [urlString componentsSeparatedByString:@"code="];
+            NSString *stringA = arrayA[1];
+            NSArray *arrayB = [stringA componentsSeparatedByString:@"&"];
+            NSString *code = arrayB[0];
+            
+            MyLog(@"%@",code);
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"WXLoginSuccess" object:self userInfo:@{@"info":code}];
+        }
+        // 支付回调
+        else if([urlString containsString:@"pay"])
+        {
+            NSArray *array = [urlString componentsSeparatedByString:@"ret="];
+            NSInteger ret = [array[1] integerValue];
+            switch (ret)
+            {
+                case 0:
+                {
+                    MyLog(@"支付成功");
+                    [self PaySuccess];
+                    
+                }
+                    break;
+                case -2:
+                {
+                    MyLog(@"支付取消");
+                    [self PayFail];
+                    
+                }
+                    break;
+                default:
+                {
+                    MyLog(@"支付失败");
+                    [self PayFail];
+
+                }
+                    break;
+                    
+            }
+            
+        }
+
         
     }
     
@@ -272,7 +309,7 @@
 
 
 
-// ★下面两个方法好像没用噢
+// ★★★★★ 下面两个方法好像没用噢
 
 // 这个方法是用于从微信返回第三方App，无论是第三方登录还是分享都用到
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url {
@@ -347,6 +384,34 @@
             
             break;
     }
+}
+
+
+
+
+// ==================================
+
+-(void)PaySuccess
+{
+    BaseViewController *currentVC = (BaseViewController *)[self topViewController];
+    
+    NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
+    NSString *URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PaySuccess],outTradeNo];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+    [currentVC.webView loadRequest:request];
+    
+    
+}
+
+-(void)PayFail
+{
+    BaseViewController *currentVC = (BaseViewController *)[self topViewController];
+    
+    NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
+    NSString *URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PayFail],outTradeNo];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+    [currentVC.webView loadRequest:request];
+    
 }
 
 
