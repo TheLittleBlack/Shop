@@ -177,20 +177,24 @@
         
     }
     
+//    @"mymma://alipay?out_trade_no=T_O_FK180203000007001&total_fee=99.02&subject=%E8%AE%A2%E5%8D%95+-+180203000007"
     if([actionType containsString:@"alipay?out_trade_no"]) // 支付宝支付订单信息
     {
         MyLog(@"支付宝支付订单信息");
-        
+
         // 获取outTradeNo
-        NSArray *array = [actionType componentsSeparatedByString:@"outTradeNo="];
-        NSString *outTradeNo = array[1];
+        NSArray *array = [actionType componentsSeparatedByString:@"out_trade_no="];
+        NSString *string = array[1];
+        NSString *outTradeNo = [[string componentsSeparatedByString:@"&"] objectAtIndex:0];
         [[NSUserDefaults standardUserDefaults] setObject:outTradeNo forKey:@"outTradeNo"];
         [[NSUserDefaults standardUserDefaults] synchronize];
         [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":outTradeNo} result:^(id result) {
             
-//            [[AlipaySDK defaultService] payOrder:@"out_trade_no=T_O_FK180127000003001&total_fee=6.10&subject=%E8%AE%A2%E5%8D%95+-+180127000003" fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
-//                MyLog(@"reslut = %@",resultDic);
-//            }];
+            NSString *dataString = result[@"data"];
+            
+            [[AlipaySDK defaultService] payOrder:dataString fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
+                MyLog(@"reslut = %@",resultDic);
+            }];
             
         } error:^(id error) {
             
@@ -209,7 +213,7 @@
             self.tabBarController.selectedIndex = 3; // 跳转
             return NO;
         }
-        
+
     }
 
     

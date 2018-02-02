@@ -114,102 +114,27 @@
         [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
             MyLog(@"支付宝: result = %@",resultDic);
             
-            NSString *resultStatus; //支付结果
-            NSString *price; //本次支付价格
-            NSString *time; //支付时间
-            UIViewController *currentVC = [self topViewController];
-            
             switch ([resultDic[@"resultStatus"] intValue])
             {
-                    
                 case 9000:
                 {
-                    resultStatus = @"支付成功";
-                    
-                }
-                    break;
-                case 8000:
-                {
-                    resultStatus = @"正在处理中";
-                }
-                    break;
-                case 4000:
-                {
-                    resultStatus = @"支付失败";
-                }
-                    break;
-                case 5000:
-                {
-                    resultStatus = @"重复请求";
+                    MyLog(@"支付成功");
+                    [self PaySuccess];
                 }
                     break;
                 case 6001:
                 {
-                    resultStatus = @"取消支付";
+                    MyLog(@"支付取消");
+                    [self PayFail];
                 }
                     break;
-                case 6002:
-                {
-                    resultStatus = @"网络错误";
-                }
-                    break;
-                case 6004:
-                {
-                    resultStatus = @"支付结果未知";
-                }
-                    break;
-                    
                 default:
                 {
-                    resultStatus = @"未知错误";
+                    MyLog(@"支付失败");
+                    [self PayFail];
                 }
                     break;
             }
-            
-            if([resultDic[@"resultStatus"] intValue] == 9000)
-            {
-                NSString *str = resultDic[@"result"];
-                
-                NSData *jsonData = [str dataUsingEncoding:NSUTF8StringEncoding];
-                NSDictionary *dicA = [NSJSONSerialization JSONObjectWithData:jsonData options:NSJSONReadingMutableContainers error:nil];
-                
-                MyLog(@"dicA = %@",dicA);
-                NSDictionary *dicB = dicA[@"alipay_trade_app_pay_response"];
-                time = dicB[@"timestamp"];
-                price = [NSString stringWithFormat:@"%@元",dicB[@"total_amount"]];
-                
-                
-                    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"充值成功" message:[NSString stringWithFormat:@"本次充值:%@",price] preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                        
-                    
-
-                        
-                        
-                    }]];
-                    
-                    [currentVC presentViewController:alert animated:YES completion:^{
-                    }];
-                    
-                
-                
-                
-            }
-            else
-            {
-                UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"温馨提示" message:[NSString stringWithFormat:@"%@",resultStatus] preferredStyle:UIAlertControllerStyleAlert];
-                
-                [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-                    
-                }]];
-                
-                [currentVC presentViewController:alert animated:YES completion:^{
-                }];
-            }
-            
-            
-            
             
             
         }];
