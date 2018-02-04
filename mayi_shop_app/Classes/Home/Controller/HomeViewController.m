@@ -91,7 +91,7 @@
     }
     
     i--;
-    [_daoJiShiButton setTitle:[NSString stringWithFormat:@"%d  跳过",i] forState:UIControlStateNormal];
+    [_daoJiShiButton setTitle:[NSString stringWithFormat:@"跳过  %d",i] forState:UIControlStateNormal];
     if(i==0)
     {
         

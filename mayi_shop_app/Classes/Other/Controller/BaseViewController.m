@@ -14,14 +14,19 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "ScanQRCodeViewController.h"
 #import "WXApi.h"
+#import <CoreLocation/CoreLocation.h>
 
-@interface BaseViewController ()<UIWebViewDelegate>
+@interface BaseViewController ()<UIWebViewDelegate,CLLocationManagerDelegate>
 
 {
     WYWebProgressLayer *_progressLayer; ///< 网页加载进度条
 }
 
 @property(nonatomic,strong)NSURLRequest *request;
+@property(nonatomic,strong)CLLocationManager *manager;
+@property(nonatomic,assign)CGFloat longitude; // 经度
+@property(nonatomic,assign)CGFloat latitude; // 纬度
+@property(nonatomic,strong)NSString *locationName;
 
 @end
 
@@ -102,15 +107,13 @@
     
     
     self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
-    // 打印异常
-    self.context.exceptionHandler =
-    ^(JSContext *context, JSValue *exceptionValue)
-    {
-        context.exception = exceptionValue;
-        NSLog(@"%@", exceptionValue);
-    };
     
-    // 以 JSExport 协议关联 native 的方法
+    // 原生调用JS
+    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(121.2222,31.2222,'上海')"];
+    [self.context evaluateScript:textJS];
+
+    
+    // JS调用原生
     self.context[@"ScanCode"] = self;
 
     
@@ -259,20 +262,130 @@
 {
     MyLog(@"微信登录");
     
-    // 这个判断有毒
-    //    if (![WXApi isWXAppInstalled]) {
-    SendAuthReq *req = [[SendAuthReq alloc] init];
-    req.scope = @"snsapi_userinfo";
-    req.state = @"mayi_shop";
-    [WXApi sendReq:req];
-    //    }
-    //    else {
-    //        [self setupAlertController];
-    //    }
+    // 这个判断有毒?
+    if([self booWeixin])
+    {
+        SendAuthReq *req = [[SendAuthReq alloc] init];
+        req.scope = @"snsapi_userinfo";
+        req.state = @"mayi_shop";
+        [WXApi sendReq:req];
+    }
+
 }
 
 
 
+// 判断是否安装微信及是否支持当前调用的api
+-(BOOL)booWeixin{
+    
+    if ([WXApi isWXAppInstalled])
+    {
+        //判断当前微信的版本是否支持OpenApi
+        if ([WXApi isWXAppSupportApi])
+        {
+            return YES;
+        }
+        else{
+
+            [self showAlterWithTitle:@"请升级微信至最新版本！"];
+            return NO;
+        }
+    }else{
+
+        [self showAlterWithTitle:@"请安装微信客户端"];
+        return NO;
+    }
+    
+}
+
+
+// 获取定位
+-(void)getLocation
+{
+    
+    if ([CLLocationManager authorizationStatus] ==kCLAuthorizationStatusDenied) {
+        //定位不能用
+        
+        [self showAlterWithTitle:@"请开启定位服务，我们需要获取您的地理位置"];
+        
+        return ;
+        
+    }
+    
+    self.manager = [CLLocationManager new];
+    self.manager.delegate = self;
+    self.manager.distanceFilter = 100; // 每隔多少米定位一次
+    self.manager.desiredAccuracy = kCLLocationAccuracyBest;  //定位精确度（越精确就越耗电）
+    if([self.manager respondsToSelector:@selector(requestWhenInUseAuthorization)])
+    {
+        [self.manager requestWhenInUseAuthorization];
+    }
+    
+    [self.manager startUpdatingLocation];
+}
+
+-(void)stopLocation
+{
+    [self.manager stopUpdatingLocation];
+}
+
+#pragma mark Location Delegate
+
+-(void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray<CLLocation *> *)locations
+{
+    MyLog(@"经度：%f", locations.lastObject.coordinate.longitude);
+    MyLog(@"纬度：%f", locations.lastObject.coordinate.latitude);
+    self.longitude = locations.lastObject.coordinate.longitude;
+    self.latitude = locations.lastObject.coordinate.latitude;
+
+    CLGeocoder * geocoder = [[CLGeocoder alloc] init];
+    
+    [geocoder reverseGeocodeLocation:locations.lastObject completionHandler:^(NSArray *placemarks, NSError *error) {
+        
+        NSDictionary *locationInfo = [[NSDictionary alloc]init];
+        
+        for (CLPlacemark * placemark in placemarks) {
+            
+            locationInfo = [placemark addressDictionary];
+            
+        }
+        
+        MyLog(@"位置:%@",locationInfo[@"Name"]);
+        self.locationName = locationInfo[@"Name"];
+        
+    }];
+    
+    // 只需获取一次位置
+    [self stopLocation];
+    // 执行之后的web请求
+    
+}
+
+
+-(void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
+{
+    MyLog(@"%@",error);
+}
+
+
+// 弹出Alter
+-(void)showAlterWithTitle:(NSString *)title
+{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:nil preferredStyle:UIAlertControllerStyleAlert];
+    
+    [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+    }]];
+    
+    // 为了不产生延时的现象，直接放在主线程中调用
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        [self presentViewController:alert animated:YES completion:^{
+        }];
+        
+    });
+}
 
 
 
