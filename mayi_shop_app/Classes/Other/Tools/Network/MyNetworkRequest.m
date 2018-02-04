@@ -41,29 +41,27 @@
     NSString *userAgent = [[NSUserDefaults standardUserDefaults] objectForKey:@"User-Agent"];
     
     
-    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:urlString]];
-    NSString *cookieValue ;
-    
-
-    
-    for (int i = 0; i<cookies.count; i++) {
-        
-        NSHTTPCookie *cookie = cookies[i];
-        MyLog(@"%@",cookie);
-        if( [cookie.name isEqualToString:@"MAYI_SHOP_COOKIE_ID"])
-        {
-            cookieValue = cookie.value;
-        }
-    
-    }
-    MyLog(@"-------------------%@------------------",cookieValue);
+//    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookiesForURL:[NSURL URLWithString:urlString]];
+//    NSString *cookieString = @"";
+//
+//    for (int i = 0; i<cookies.count; i++) {
+//
+//        NSHTTPCookie *cookie = cookies[i];
+//        MyLog(@"%@",cookie);
+//        if( [cookie.name isEqualToString:@"MAYI_SHOP_COOKIE_ID"])
+//        {
+//            cookieString = cookie.value;
+//        }
+//
+//    }
+//    MyLog(@"-------------------%@------------------",cookieString);
 
     if(userAgent)
     {
         // 添加请求头
 
         [manager.requestSerializer setValue:userAgent forHTTPHeaderField:@"User-Agent"];
-        [manager.requestSerializer setValue:cookieValue forHTTPHeaderField:@"Cookie"];
+//        [manager.requestSerializer setValue:cookieString forHTTPHeaderField:@"Cookie"];
 
     }
     

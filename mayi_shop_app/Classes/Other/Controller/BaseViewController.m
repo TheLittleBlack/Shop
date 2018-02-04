@@ -47,12 +47,11 @@
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"新零兽";
     
-    UIBarButtonItem *searchButton = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"icon_search"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  style:UIBarButtonItemStylePlain target:self action:@selector(searchButtonAction)];
     
     UIBarButtonItem *scanButton = [[UIBarButtonItem alloc]initWithImage:[[UIImage imageNamed:@"icon_scan"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal]  style:UIBarButtonItemStylePlain target:self action:@selector(scanButtonAction)];
     
     
-    self.navigationItem.rightBarButtonItems = @[searchButton,scanButton];
+    self.navigationItem.rightBarButtonItems = @[scanButton];
     
     
     [self.view addSubview:self.webView];
@@ -77,7 +76,6 @@
         _webView.delegate = self;
         NSURL *url = [NSURL URLWithString:_urlString];
         self.request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
-//        [_webView stringByEvaluatingJavaScriptFromString:@"navigator.userAgent"];
         [_webView loadRequest:self.request];
     }
     return _webView;
@@ -117,11 +115,13 @@
     self.context[@"ScanCode"] = self;
 
     
+    [self test];
 
 }
 
 - (BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType
 {
+    
     NSURL *URL = request.URL;
     NSString *urlStr = [NSString stringWithFormat:@"%@",URL];
     MyLog(@"请求的URL：%@",urlStr);
@@ -241,12 +241,6 @@
     
 }
 
-
-
--(void)searchButtonAction
-{
-    MyLog(@"查找");
-}
 
 -(void)scanButtonAction
 {
@@ -388,5 +382,31 @@
 }
 
 
+-(void)test
+{
+
+    NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
+    for (NSHTTPCookie *cookie in cookies) {
+        NSDictionary *dict = cookie.properties;
+        NSLog(@"$$$$$$%@$$$$$$",dict);
+    }
+}
+
+// 保存cookie
+-(void)setCookie:(NSDictionary *)properties
+{
+    [[NSHTTPCookieStorage sharedHTTPCookieStorage]setCookie:[NSHTTPCookie cookieWithProperties:properties]];
+}
+
+// 清除cookie
+-(void)deleteCookie
+{
+    NSHTTPCookie *cookie;
+    NSHTTPCookieStorage *cookieJar = [NSHTTPCookieStorage sharedHTTPCookieStorage];
+    for (cookie in [cookieJar cookies])
+    {
+        [cookieJar deleteCookie:cookie];
+    }
+}
 
 @end

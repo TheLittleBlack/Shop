@@ -28,6 +28,7 @@
     // 清空暂存的 outTradeNo
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"outTradeNo"];
 
+   
     
 }
 
@@ -62,7 +63,7 @@
     _daoJiShiButton.layer.borderWidth = 1.5;
     _daoJiShiButton.layer.borderColor = [UIColor colorWithRed:1 green:1 blue:1 alpha:0.5].CGColor;
     [_daoJiShiButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [_daoJiShiButton setTitle:[NSString stringWithFormat:@"%d  跳过",ADTime] forState:UIControlStateNormal];
+    [_daoJiShiButton setTitle:[NSString stringWithFormat:@"跳过  %d",ADTime] forState:UIControlStateNormal];
     _daoJiShiButton.titleLabel.font = [UIFont systemFontOfSize:15.5];
     [_daoJiShiButton addTarget:self action:@selector(goToHome) forControlEvents:UIControlEventTouchDown];
     [self.imageView addSubview:_daoJiShiButton];
@@ -128,7 +129,7 @@
     
 }
 
-// 设置cookie
+//// 设置cookie
 //- (void)setCookie:(NSString *)token{
 //
 //    NSMutableDictionary *cookieProperties = [NSMutableDictionary dictionary];

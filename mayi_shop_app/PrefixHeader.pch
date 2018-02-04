@@ -17,8 +17,8 @@
 
 
 #if ConfigureServer == 0
-#define MainURL @"http://Ls.suasong.com"
-//#define MainURL @"http://test.m.mayi118.com"
+//#define MainURL @"http://Ls.suasong.com"
+#define MainURL @"http://test.m.mayi118.com"
 #else
 #define MainURL @"http://m.hlwjd.cn"
 #endif
