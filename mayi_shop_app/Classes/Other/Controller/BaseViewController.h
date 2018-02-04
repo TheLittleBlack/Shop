@@ -11,7 +11,11 @@
 
 @protocol TestJSExport <JSExport>
 
-- (void)wxLogin;
+-(void)wxLogin;
+-(void)scanCode;
+-(void)wxpay:(NSString *)order;
+-(void)callPhone:(NSString *)number;
+-(void)goHomePage;
 
 @end
 

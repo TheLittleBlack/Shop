@@ -20,6 +20,7 @@
 
 {
     WYWebProgressLayer *_progressLayer; ///< 网页加载进度条
+    BOOL _goToNearShop;
 }
 
 @property(nonatomic,strong)NSURLRequest *request;
@@ -87,6 +88,8 @@
 //开始加载
 - (void)webViewDidStartLoad:(UIWebView *)webView
 {
+    [_progressLayer finishedLoad]; // 先结束掉上个请求的进度
+    
     MyLog(@"开始加载");
     
     _progressLayer = [WYWebProgressLayer layerWithFrame:CGRectMake(0, 0, ScreenWidth, 3)];
@@ -106,16 +109,14 @@
     
     self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
-    // 原生调用JS
-    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(121.2222,31.2222,'上海')"];
-    [self.context evaluateScript:textJS];
 
+    // 原生调用JS
+//    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(121.395284,31.241389,'上海')"];
+//    [self.context evaluateScript:textJS];
     
     // JS调用原生
     self.context[@"ScanCode"] = self;
 
-    
-    [self test];
 
 }
 
@@ -131,6 +132,17 @@
     
     MyLog(@"请求类型：%@",actionType);
     [self urlActionType:actionType];
+    
+    if([actionType containsString:@"show_nearby_shop.htm"]) // 附近门店
+    {
+        _goToNearShop = YES;
+        [self getLocation];
+    }
+    else
+    {
+        _goToNearShop = NO;
+    }
+    
     
     if([actionType containsString:@"/wxpay/pay.htm"]) // 调起微信支付标识
     {
@@ -154,7 +166,7 @@
             NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData
                                                                 options:NSJSONReadingMutableContainers
                                                                   error:nil];
-      
+            [MYManage defaultManager].CurrentPaytype = 0; // 记录支付类型
             // 跳转微信支付
             PayReq *req = [[PayReq alloc] init];
             req.openID = WXAPPID;
@@ -194,6 +206,8 @@
         [MyNetworkRequest postRequestWithUrl:[MayiURLManage MayiURLManageWithURL:AlipayUrl] withPrameters:@{@"outTradeNo":outTradeNo} result:^(id result) {
             
             NSString *dataString = result[@"data"];
+            
+            [MYManage defaultManager].CurrentPaytype = 0; // 记录支付类型
             
             [[AlipaySDK defaultService] payOrder:dataString fromScheme:URLSchemes callback:^(NSDictionary *resultDic) {
                 MyLog(@"reslut = %@",resultDic);
@@ -263,6 +277,71 @@
         req.scope = @"snsapi_userinfo";
         req.state = @"mayi_shop";
         [WXApi sendReq:req];
+    }
+}
+
+-(void)scanCode
+{
+    MyLog(@"JS调用扫一扫");
+    [self scanButtonAction];
+}
+-(void)wxpay:(NSString *)order;
+{
+    MyLog(@"JS调用微信支付");
+    // 跳转微信支付
+    
+    [MYManage defaultManager].CurrentPaytype = 1; // 记录支付类型（门店购）
+    
+    // json转字典
+    NSData *jsonData = [order dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary *data = [NSJSONSerialization JSONObjectWithData:jsonData
+                                                         options:NSJSONReadingMutableContainers
+                                                           error:nil];
+    PayReq *req = [[PayReq alloc] init];
+    req.openID = WXAPPID;
+    req.partnerId = [data objectForKey:@"partnerid"];
+    req.prepayId = [data objectForKey:@"prepayid"];
+    req.package = [data objectForKey:@"package"];
+    req.nonceStr = [data objectForKey:@"noncestr"];
+    req.timeStamp = [[data objectForKey:@"timestamp"] unsignedIntValue];
+    req.sign = [data objectForKey:@"sign"];
+    [WXApi sendReq:req];
+}
+-(void)callPhone:(NSString *)number
+{
+    MyLog(@"JS调用打电话%@",number);
+    if(number&&![number isEqualToString:@""]&&![number isEqualToString:@"null"])
+    {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            UIWebView *callWebView = [[UIWebView alloc] init];
+            NSURL *telURL = [NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",number]];
+            [callWebView loadRequest:[NSURLRequest requestWithURL:telURL]];
+            [self.view addSubview:callWebView];
+            
+        });
+        
+       
+    }
+}
+-(void)goHomePage
+{
+    MyLog(@"JS调用返回首页");
+    if(self.tabBarController.selectedIndex !=0 )
+    {
+        self.tabBarController.selectedIndex = 0;
+    }
+    else
+    {
+        NSString *HomeURL = [MayiURLManage MayiWebURLManageWithURL:Home];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:HomeURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.webView loadRequest:request];
+        });
+
+        
     }
 
 }
@@ -347,6 +426,11 @@
         MyLog(@"位置:%@",locationInfo[@"Name"]);
         self.locationName = locationInfo[@"Name"];
         
+        
+        // 原生调用JS
+        NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(%f,%f,'%@')",self.longitude,self.latitude,self.locationName];
+        [self.context evaluateScript:textJS];
+        
     }];
     
     // 只需获取一次位置
@@ -382,13 +466,13 @@
 }
 
 
--(void)test
+-(void)logCookie
 {
 
     NSArray *cookies = [[NSHTTPCookieStorage sharedHTTPCookieStorage] cookies];
     for (NSHTTPCookie *cookie in cookies) {
         NSDictionary *dict = cookie.properties;
-        NSLog(@"$$$$$$%@$$$$$$",dict);
+        NSLog(@"+++++++++%@$+++++++++",dict);
     }
 }
 

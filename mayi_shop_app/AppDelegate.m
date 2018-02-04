@@ -14,6 +14,7 @@
 #import <AlipaySDK/AlipaySDK.h>
 #import "WXApi.h"
 #import "BaseViewController.h"
+#import "MYManage.h"
 
 @interface AppDelegate ()<WXApiDelegate>
 
@@ -125,7 +126,7 @@
                 case 6001:
                 {
                     MyLog(@"支付取消");
-                    [self PayFail];
+                    [self PayCancel];
                 }
                     break;
                 default:
@@ -175,7 +176,7 @@
                 case -2:
                 {
                     MyLog(@"支付取消");
-                    [self PayFail];
+                    [self PayCancel];
                     
                 }
                     break;
@@ -319,11 +320,28 @@
 -(void)PaySuccess
 {
     BaseViewController *currentVC = (BaseViewController *)[self topViewController];
+    NSString *URL = @"";
     
-    NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
-    NSString *URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PaySuccess],outTradeNo];
+    if([MYManage defaultManager].CurrentPaytype==0) // 商品购
+    {
+        NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
+        URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PaySuccess],outTradeNo];
+    }
+    else if([MYManage defaultManager].CurrentPaytype==1) // 门店购
+    {
+        URL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:EnterShopSuccess]];
+    }
+    else if([MYManage defaultManager].CurrentPaytype==2) // 扫码购
+    {
+        
+    }
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
-    [currentVC.webView loadRequest:request];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [currentVC.webView loadRequest:request];
+    });
+    
     
     
 }
@@ -331,14 +349,53 @@
 -(void)PayFail
 {
     BaseViewController *currentVC = (BaseViewController *)[self topViewController];
+    NSString *URL = @"";
     
-    NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
-    NSString *URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PayFail],outTradeNo];
+    if([MYManage defaultManager].CurrentPaytype==0) // 商品购
+    {
+        NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
+        URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PayFail],outTradeNo];
+    }
+    else if([MYManage defaultManager].CurrentPaytype==1) // 门店购
+    {
+        URL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:EnterShopFail]];
+    }
+    else if([MYManage defaultManager].CurrentPaytype==2) // 扫码购
+    {
+        
+    }
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
-    [currentVC.webView loadRequest:request];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [currentVC.webView loadRequest:request];
+    });
     
 }
 
+-(void)PayCancel
+{
+    BaseViewController *currentVC = (BaseViewController *)[self topViewController];
+    NSString *URL = @"";
+    
+    if([MYManage defaultManager].CurrentPaytype==0) // 商品购
+    {
+        NSString *outTradeNo = [[NSUserDefaults standardUserDefaults] valueForKey:@"outTradeNo"];
+        URL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:PayFail],outTradeNo];
+    }
+    else if([MYManage defaultManager].CurrentPaytype==1) // 门店购
+    {
+        URL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:EnterShopCancel]];
+    }
+    else if([MYManage defaultManager].CurrentPaytype==2) // 扫码购
+    {
+        
+    }
+    
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [currentVC.webView loadRequest:request];
+    });
+}
 
 
 

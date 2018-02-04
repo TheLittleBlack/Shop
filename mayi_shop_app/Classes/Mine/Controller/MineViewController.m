@@ -42,7 +42,10 @@
     
     NSString *loginURL = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:WXLogin],code];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:loginURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
-    [self.webView loadRequest:request];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.webView loadRequest:request];
+    });
     
 //    MyLog(@"%@",loginURL);
 //

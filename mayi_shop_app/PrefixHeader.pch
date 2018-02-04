@@ -42,6 +42,7 @@
 #import "MyNetworkRequest.h"
 #import "MayiURLManage.h"
 #import <MBProgressHUD.h>
+#import "MYManage.h"
 //#import "MyAFNetWorking.h"
 
 //屏幕宽高缩放比

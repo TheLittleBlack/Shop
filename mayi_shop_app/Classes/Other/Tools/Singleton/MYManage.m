@@ -43,41 +43,41 @@ static MYManage *_myManage;
     return _myManage;
 }
 
--(void)setDataWithDictionary:(NSDictionary *)dic
-{
-    _agencyId = dic[@"agencyId"];
-    _agencyName = dic[@"agencyName"];
-    _createOperator = dic[@"createOperator"];
-    _customUserType = dic[@"customUserType"];
-    _mobile = dic[@"mobile"];
-    _organizationName = dic[@"organizationName"];
-    _status = dic[@"status"];
-    _userName = dic[@"userName"];
-    _userType = dic[@"userType"];
-    _ID = dic[@"id"];
-}
+//-(void)setDataWithDictionary:(NSDictionary *)dic
+//{
+//    _agencyId = dic[@"agencyId"];
+//    _agencyName = dic[@"agencyName"];
+//    _createOperator = dic[@"createOperator"];
+//    _customUserType = dic[@"customUserType"];
+//    _mobile = dic[@"mobile"];
+//    _organizationName = dic[@"organizationName"];
+//    _status = dic[@"status"];
+//    _userName = dic[@"userName"];
+//    _userType = dic[@"userType"];
+//    _ID = dic[@"id"];
+//}
+//
+//-(void)setUserInfoWithDictionary:(NSDictionary *)dic
+//{
+//    _address = dic[@"address"];
+//    _passport = dic[@"passport"];
+//}
 
--(void)setUserInfoWithDictionary:(NSDictionary *)dic
-{
-    _address = dic[@"address"];
-    _passport = dic[@"passport"];
-}
 
 
-
--(void)clearAllData
-{
-    _token = nil;
-    _agencyId = nil;
-    _agencyName = nil;
-    _createOperator = nil;
-    _customUserType = nil;
-    _mobile = nil;
-    _organizationName = nil;
-    _status = nil;
-    _userName = nil;
-    _userType = nil;
-    _address = nil;
-}
+//-(void)clearAllData
+//{
+//    _token = nil;
+//    _agencyId = nil;
+//    _agencyName = nil;
+//    _createOperator = nil;
+//    _customUserType = nil;
+//    _mobile = nil;
+//    _organizationName = nil;
+//    _status = nil;
+//    _userName = nil;
+//    _userType = nil;
+//    _address = nil;
+//}
 
 @end
