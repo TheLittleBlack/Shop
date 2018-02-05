@@ -333,7 +333,7 @@
     }
     else if([MYManage defaultManager].CurrentPaytype==2) // 扫码购
     {
-        
+        URL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:BuySuccess]];
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
@@ -362,7 +362,7 @@
     }
     else if([MYManage defaultManager].CurrentPaytype==2) // 扫码购
     {
-        
+        URL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:BuyFail]];
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
@@ -388,7 +388,7 @@
     }
     else if([MYManage defaultManager].CurrentPaytype==2) // 扫码购
     {
-        
+        URL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:BuyCancel]];
     }
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:URL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
