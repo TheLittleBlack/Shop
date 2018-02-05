@@ -36,7 +36,7 @@ typedef NS_ENUM(NSUInteger,MayiWebUrlType) {
     FindNearByShop, // 附近门店列表
     CallShop, // 呼叫门店
     CancelCallShop, //取消呼叫门店
-    
+    ScanAddToCard,// 扫码加入购物车
     
 };
 

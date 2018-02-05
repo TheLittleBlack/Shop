@@ -35,6 +35,8 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
+    
     if(self.request)
     {
         [self.webView loadRequest:self.request];
@@ -71,11 +73,12 @@
 {
     if(!_webView)
     {
+        
         _webView = [UIWebView new];
         _webView.scalesPageToFit = YES;
         _webView.userInteractionEnabled = YES;
         _webView.delegate = self;
-        NSURL *url = [NSURL URLWithString:_urlString];
+        NSURL *url = [NSURL URLWithString:self.urlString];
         self.request = [NSURLRequest requestWithURL:url cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
         [_webView loadRequest:self.request];
     }
@@ -105,18 +108,16 @@
     MyLog(@"加载完成");
     [Hud stop];
     [_progressLayer finishedLoad];
-    
-    
+
     self.context = [webView valueForKeyPath:@"documentView.webView.mainFrame.javaScriptContext"];
     
-
     // 原生调用JS
 //    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(121.395284,31.241389,'上海')"];
 //    [self.context evaluateScript:textJS];
+
     
     // JS调用原生
     self.context[@"ScanCode"] = self;
-
 
 }
 
@@ -285,6 +286,7 @@
     MyLog(@"JS调用扫一扫");
     [self scanButtonAction];
 }
+
 -(void)wxpay:(NSString *)order;
 {
     MyLog(@"JS调用微信支付");

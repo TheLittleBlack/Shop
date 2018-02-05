@@ -135,8 +135,12 @@
             baseURL = @"/nearby_shop/cancel_call_out.htm"; // 取消呼叫门店
         }
             break;
+        case ScanAddToCard:
+        {
+            baseURL = @"/scan_code_purchase/go_shopCar.htm?barCode=EAN,"; // 扫码加入购物车
+        }
+            break;
             
-
 
     }
     

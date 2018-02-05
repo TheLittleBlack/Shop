@@ -7,6 +7,7 @@
 //
 
 #import "HomeViewController.h"
+
 #define ADTime 3  //广告时间
 
 @interface HomeViewController ()
@@ -27,8 +28,6 @@
     [self addLoadImage];
     // 清空暂存的 outTradeNo
     [[NSUserDefaults standardUserDefaults] setObject:nil forKey:@"outTradeNo"];
-
-   
     
 }
 
@@ -143,6 +142,7 @@
 //    NSHTTPCookie *cookieuser = [NSHTTPCookie cookieWithProperties:cookieProperties];
 //    [[NSHTTPCookieStorage sharedHTTPCookieStorage] setCookie:cookieuser];
 //}
+
 
 
 

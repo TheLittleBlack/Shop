@@ -24,7 +24,7 @@
 
 @property(nonatomic,strong)UIWebView *webView;
 @property(nonatomic,copy)NSString *urlString;
-@property (strong, nonatomic) JSContext *context;
+@property(nonatomic,strong)JSContext *context;
 
 
 

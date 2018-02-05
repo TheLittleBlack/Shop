@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		68A1A2E1F2C3573E28A477F8 /* libPods-mayi_shop_app.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F02051B5C1056D6DE21F43B8 /* libPods-mayi_shop_app.a */; };
+		DD13A4682028984A00DC056A /* ScanAddToCartViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD13A4672028984A00DC056A /* ScanAddToCartViewController.m */; };
 		DD200A992018CE7B0051CD39 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DD200A982018CE7B0051CD39 /* AppDelegate.m */; };
 		DD200A9F2018CE7C0051CD39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DD200A9D2018CE7C0051CD39 /* Main.storyboard */; };
 		DD200AA12018CE7C0051CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DD200AA02018CE7C0051CD39 /* Assets.xcassets */; };
@@ -65,6 +66,8 @@
 /* Begin PBXFileReference section */
 		109596666D111078274A2428 /* Pods-mayi_shop_app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mayi_shop_app.release.xcconfig"; path = "Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app.release.xcconfig"; sourceTree = "<group>"; };
 		B9E8D44A56943BC9B19498B0 /* Pods-mayi_shop_app.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mayi_shop_app.debug.xcconfig"; path = "Pods/Target Support Files/Pods-mayi_shop_app/Pods-mayi_shop_app.debug.xcconfig"; sourceTree = "<group>"; };
+		DD13A4662028984A00DC056A /* ScanAddToCartViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanAddToCartViewController.h; sourceTree = "<group>"; };
+		DD13A4672028984A00DC056A /* ScanAddToCartViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanAddToCartViewController.m; sourceTree = "<group>"; };
 		DD200A942018CE7B0051CD39 /* mayi_shop_app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mayi_shop_app.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD200A972018CE7B0051CD39 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		DD200A982018CE7B0051CD39 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -401,6 +404,8 @@
 				DD4D5BD020237591005138DD /* ScanCodeBuyViewController.m */,
 				DDD22A31201E055C00203F7D /* ScanQRCodeViewController.h */,
 				DDD22A32201E055C00203F7D /* ScanQRCodeViewController.m */,
+				DD13A4662028984A00DC056A /* ScanAddToCartViewController.h */,
+				DD13A4672028984A00DC056A /* ScanAddToCartViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -772,6 +777,7 @@
 				DD200AE82018D3170051CD39 /* BaseViewController.m in Sources */,
 				DDD22A33201E055C00203F7D /* ScanQRCodeViewController.m in Sources */,
 				DD200B242018E2B20051CD39 /* UITableView+WLEmptyPlaceHolder.m in Sources */,
+				DD13A4682028984A00DC056A /* ScanAddToCartViewController.m in Sources */,
 				DD200AA72018CE7C0051CD39 /* main.m in Sources */,
 				DD200B212018E2B20051CD39 /* NSString+MD5.m in Sources */,
 				DDE5068C201C779500E60EE8 /* WLWebProgressLayer.m in Sources */,

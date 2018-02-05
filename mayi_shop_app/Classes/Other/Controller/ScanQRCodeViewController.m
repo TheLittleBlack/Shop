@@ -10,6 +10,7 @@
 #import <AVFoundation/AVFoundation.h>
 #import "UIBarButtonItem+customItem.h"
 #import "ScanCodeBuyViewController.h"
+#import "ScanAddToCartViewController.h"
 
 /**
  *  屏幕 高 宽 边界
@@ -56,6 +57,8 @@
     
     [self setBarButtonItem];
     
+
+    
     
 }
 
@@ -64,7 +67,6 @@
     self.navigationItem.leftBarButtonItem = [UIBarButtonItem BackButtonItemWithTarget:self action:@selector(back)];
     
 //    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithImage:[UIImage imageNamed:@"image222"] style:UIBarButtonItemStylePlain target:self action:@selector(choosePicture)];
-    
     
 }
 
@@ -156,6 +158,8 @@
 
 - (void)setupCamera
 {
+    
+
     AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     if (device==nil) {
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"提示" message:@"设备没有摄像头" preferredStyle:UIAlertControllerStyleAlert];
@@ -261,12 +265,9 @@
         //            MyLog(@"%@",temp);
         //        }
         
-        ScanCodeBuyViewController *SMGVC = [ScanCodeBuyViewController new];
-        SMGVC.urlString = stringValue;
-        [self.navigationController pushViewController:SMGVC animated:YES];
+
         
-        
-//        [self dealQRString:stringValue];
+        [self dealQRString:stringValue];
         
         
     }
@@ -277,27 +278,40 @@
 //处理扫描到的信息
 -(void)dealQRString:(NSString *)QRString
 {
+    
+    BOOL canAddToCart = [[NSUserDefaults standardUserDefaults] boolForKey:@"canAddToCart"];
+    
     // 判断扫描结果  http://test.m.mayi118.com/scan_code_purchase/index/sc/100013
-    if([QRString containsString:@"scan_code_purchase"])
+    if([QRString containsString:@"http://"])
     {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"二维码信息" message:QRString preferredStyle:UIAlertControllerStyleAlert];
-        [alert addAction:[UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            
-            
-            [self.navigationController popViewControllerAnimated:YES];
-            
-        }]];
-        [self presentViewController:alert animated:YES completion:nil];
+
+        ScanCodeBuyViewController *SMGVC = [ScanCodeBuyViewController new];
+        SMGVC.urlString = QRString;
+        [self.navigationController pushViewController:SMGVC animated:YES];
+    
+    }
+    else if(canAddToCart)
+    {
+        
+        ScanAddToCartViewController *SATC = [ScanAddToCartViewController new];
+        SATC.urlString = [NSString stringWithFormat:@"%@%@",[MayiURLManage MayiWebURLManageWithURL:ScanAddToCard],QRString];
+        [self.navigationController pushViewController:SATC animated:YES];
+        
+
     }
     else
     {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请扫描门店二维码" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"请先扫描门店二维码，进入门店购买商品！" message:nil preferredStyle:UIAlertControllerStyleAlert];
         [alert addAction:[UIAlertAction actionWithTitle:@"好的" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [_session startRunning];
+                timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
+            });
             
- 
-            [_session startRunning];
-            timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
-            
+
+
         }]];
         [self presentViewController:alert animated:YES completion:nil];
     }
@@ -397,6 +411,8 @@
 
 -(void)viewWillAppear:(BOOL)animated{
     
+    [super viewWillAppear:animated];
+    
     self.navigationController.navigationBar.hidden = NO;
     
     [self setCropRect:kScanRect];
@@ -410,6 +426,8 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
+    
     [self stopTimer];
     
     [self removeView];
@@ -434,4 +452,10 @@
     [timer invalidate];
     timer = nil;
 }
+
+-(void)dealloc
+{
+    
+}
+
 @end
