@@ -437,7 +437,7 @@
     
     // 只需获取一次位置
     [self stopLocation];
-    // 执行之后的web请求
+   
     
 }
 

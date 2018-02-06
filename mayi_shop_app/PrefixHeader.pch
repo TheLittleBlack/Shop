@@ -32,7 +32,7 @@
 
 //-----------------------------------------------------------------------
 
-//#ifdef __OBJC__   #endif只会拷贝到OC源代码文件中，不会拷贝到其他源代码文件中
+
 #ifdef __OBJC__
 
 #import <UIKit/UIKit.h>
@@ -43,7 +43,7 @@
 #import "MayiURLManage.h"
 #import <MBProgressHUD.h>
 #import "MYManage.h"
-//#import "MyAFNetWorking.h"
+
 
 //屏幕宽高缩放比
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width

@@ -307,7 +307,6 @@
         default:{
             MyLog(@"微信支付失败");
         }
-            
             break;
     }
 }
