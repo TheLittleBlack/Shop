@@ -963,7 +963,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74897WDG2G;
+				DEVELOPMENT_TEAM = AC42CSJ3E3;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/mayi_shop_app/PrefixHeader.pch";
 				INFOPLIST_FILE = mayi_shop_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -980,7 +980,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 74897WDG2G;
+				DEVELOPMENT_TEAM = AC42CSJ3E3;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/mayi_shop_app/PrefixHeader.pch";
 				INFOPLIST_FILE = mayi_shop_app/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
