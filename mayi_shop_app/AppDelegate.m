@@ -15,8 +15,11 @@
 #import "WXApi.h"
 #import "BaseViewController.h"
 #import "MYManage.h"
+#import <BuglyHotfix/Bugly.h>
+#import <BuglyHotfix/BuglyMender.h>
+#import "JPEngine.h"
 
-@interface AppDelegate ()<WXApiDelegate>
+@interface AppDelegate ()<WXApiDelegate,UITabBarControllerDelegate,BuglyDelegate>
 
 @property(nonatomic,strong)UITabBarController *tabBarController;
 
@@ -27,6 +30,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    
+    // 配置Bugly
+    [self configBugly];
     
     // 向微信终端程序注册第三方应用
     [WXApi registerApp:WXAPPID];
@@ -51,6 +57,7 @@
     _tabBarController = [UITabBarController new];
     [_tabBarController.tabBar setTintColor:MainColor];
     _tabBarController.tabBar.backgroundColor = [UIColor whiteColor];
+    _tabBarController.delegate = self;
     
     [self creatViewControllerView:[HomeViewController new] andTitle:@"首页" andImage:@"tab_home" andSelectedImage:@"tab_home_selected"];
     [self creatViewControllerView:[CategoryViewController new] andTitle:@"分类" andImage:@"tab_category" andSelectedImage:@"tab_category_selected"];
@@ -396,6 +403,67 @@
     });
 }
 
+
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+{
+    if(self.tabBarController.selectedIndex==0)
+    {
+        // 点击了首页
+        BaseViewController *homeVC = (BaseViewController *)[self topViewController];
+        
+        NSString *loginURL = [NSString stringWithFormat:@"%@",[MayiURLManage MayiWebURLManageWithURL:Home]];
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:loginURL] cachePolicy:NSURLRequestReloadIgnoringLocalCacheData timeoutInterval:6];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [homeVC.webView loadRequest:request];
+        });
+        
+    }
+   
+}
+
+
+- (void)configBugly {
+    //初始化 Bugly 异常上报
+    BuglyConfig *config = [[BuglyConfig alloc] init];
+    config.delegate = self;
+    config.debugMode = YES;
+    config.reportLogLevel = BuglyLogLevelInfo;
+    [Bugly startWithAppId:BuglyKey
+#if DEBUG
+        developmentDevice:YES
+#endif
+                   config:config];
+    
+    //捕获 JSPatch 异常并上报
+    [JPEngine handleException:^(NSString *msg) {
+        NSException *jspatchException = [NSException exceptionWithName:@"Hotfix Exception" reason:msg userInfo:nil];
+        [Bugly reportException:jspatchException];
+    }];
+    //检测补丁策略
+    [[BuglyMender sharedMender] checkRemoteConfigWithEventHandler:^(BuglyHotfixEvent event, NSDictionary *patchInfo) {
+        //有新补丁或本地补丁状态正常
+        if (event == BuglyHotfixEventPatchValid || event == BuglyHotfixEventNewPatch) {
+            //获取本地补丁路径
+            NSString *patchDirectory = [[BuglyMender sharedMender] patchDirectory];
+            if (patchDirectory) {
+                //指定执行的 js 脚本文件名
+                NSString *patchFileName = @"main.js";
+                NSString *patchFile = [patchDirectory stringByAppendingPathComponent:patchFileName];
+                //执行补丁加载并上报激活状态
+                if ([[NSFileManager defaultManager] fileExistsAtPath:patchFile] &&
+                    [JPEngine evaluateScriptWithPath:patchFile] != nil) {
+                    BLYLogInfo(@"evaluateScript success");
+                    [[BuglyMender sharedMender] reportPatchStatus:BuglyHotfixPatchStatusActiveSucess];
+                }else {
+                    BLYLogInfo(@"evaluateScript failed");
+                    [[BuglyMender sharedMender] reportPatchStatus:BuglyHotfixPatchStatusActiveFail];
+                }
+            }
+        }
+    }];
+}
 
 
 @end

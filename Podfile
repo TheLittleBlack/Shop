@@ -9,4 +9,6 @@ pod 'MJRefresh', '~> 3.1.12'
 pod 'Masonry', '~> 1.0.2'
 pod 'AliPay_SDK', '~> 3.0.0'
 pod 'WechatOpenSDK', '~> 1.8.0'
+pod 'BuglyHotfix'
+pod 'JSPatch'
 end

@@ -85,11 +85,13 @@ EOM
 }
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_resource "${PODS_ROOT}/AliPay_SDK/AliPay-master/AlipaySDK.bundle"
+  install_resource "${PODS_ROOT}/JSPatch/JSPatch/JSPatch.js"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_resource "${PODS_ROOT}/AliPay_SDK/AliPay-master/AlipaySDK.bundle"
+  install_resource "${PODS_ROOT}/JSPatch/JSPatch/JSPatch.js"
   install_resource "${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle"
   install_resource "${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle"
 fi

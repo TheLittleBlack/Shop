@@ -16,7 +16,7 @@
 #import "WXApi.h"
 #import <CoreLocation/CoreLocation.h>
 
-@interface BaseViewController ()<UIWebViewDelegate,CLLocationManagerDelegate>
+@interface BaseViewController ()<UIWebViewDelegate,CLLocationManagerDelegate,UITabBarControllerDelegate>
 
 {
     WYWebProgressLayer *_progressLayer; ///< 网页加载进度条
@@ -46,6 +46,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = @"新零兽";
@@ -114,6 +115,9 @@
     // 原生调用JS
 //    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(121.395284,31.241389,'上海')"];
 //    [self.context evaluateScript:textJS];
+    
+    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(%f,%f,'%@')",self.longitude,self.latitude,self.locationName];
+    [self.context evaluateScript:textJS];
 
     
     // JS调用原生
@@ -429,14 +433,22 @@
         self.locationName = locationInfo[@"Name"];
         
         
+        
         // 原生调用JS
         NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(%f,%f,'%@')",self.longitude,self.latitude,self.locationName];
         [self.context evaluateScript:textJS];
         
+
+        
+
+        
     }];
+    
     
     // 只需获取一次位置
     [self stopLocation];
+    
+
    
     
 }
@@ -494,5 +506,12 @@
         [cookieJar deleteCookie:cookie];
     }
 }
+
+//- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController
+//{
+//    MyLog(@"ss");
+//}
+
+
 
 @end
