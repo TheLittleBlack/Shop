@@ -25,7 +25,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>mayi_shop_app</string>
+				<string>mayiShopApp</string>
 			</array>
 		</dict>
 		<dict>
@@ -33,7 +33,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>mayi_shop</string>
+				<string>mayiShop</string>
 			</array>
 		</dict>
 		<dict>

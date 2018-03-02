@@ -116,7 +116,7 @@
 //    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(121.395284,31.241389,'上海')"];
 //    [self.context evaluateScript:textJS];
     
-    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(%f,%f,'%@')",self.longitude,self.latitude,self.locationName];
+    NSString *textJS = [NSString stringWithFormat:@"findNearbyShop(%f,%f,'%@','gps')",self.longitude,self.latitude,self.locationName];
     [self.context evaluateScript:textJS];
 
     
@@ -280,7 +280,7 @@
     {
         SendAuthReq *req = [[SendAuthReq alloc] init];
         req.scope = @"snsapi_userinfo";
-        req.state = @"mayi_shop";
+        req.state = @"mayiShop";
         [WXApi sendReq:req];
     }
 }
